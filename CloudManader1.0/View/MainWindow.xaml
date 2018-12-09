@@ -5,12 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CloudManader1._0"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"  
+        mc:Ignorable="d"
+        xmlns:ie="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:local1="clr-namespace:CloudManader1._0"
         x:Name="AppWindow"
         Title="MainWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True" >
+    
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="HumburgerMenu">
@@ -45,7 +48,10 @@
         </Grid.ColumnDefinitions>
         
         <!--Window header-->
-        <Grid Grid.ColumnSpan="2" Grid.Row="0" Height="30" VerticalAlignment="Top">
+        <Grid Grid.ColumnSpan="2" Background="#FFC9C9C9" Grid.Row="0" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="DragWindowHeader">
+            <Grid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding WindowHeaderInteraction}"/>
+            </Grid.InputBindings>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="90">
                 <Button Command="{Binding MinimizeWindowCommand}" Opacity="1" Style="{DynamicResource WithAnimation}"  HorizontalAlignment="Right" Width="30" Background="{x:Null}"  Margin="0,0,0,0">
                     <Image  Source="/images/mainWindowImades/HideWin.png" Height="13"/>
@@ -121,117 +127,10 @@
         
           <!--Content-->
         <Grid Grid.Column="1" Grid.Row="1">
-            <TextBlock Text="sadferwerwe
-                       wer
-                       werwerw"/>
+            <Frame x:Name="MainFrame" Content="{Binding CurrentPage,Converter={local:ApplicationPageValueConverter}}"/>
+
         </Grid>
     </Grid>  
-    <!--<Grid  Background="#FFB1B7B8" x:Name="LayoutRoot">
-        <Grid Height="30" VerticalAlignment="Top"  Background="#ffffff">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="90">
-                <Button Opacity="1" Style="{DynamicResource WithAnimation}"  HorizontalAlignment="Right" Width="30" Background="{x:Null}"  Margin="0,0,0,0">
-                    <Image  Source="/images/mainWindowImades/HideWin.png" Height="13"/>
-                </Button>
-                <Button Opacity="1" Style="{DynamicResource WithAnimation}"  HorizontalAlignment="Right" Width="30" Background="{x:Null}"  Margin="0,0,0,0">
-                    <Image Name="max_minImage" Source="/images/mainWindowImades/full-screen.png" Height="13"/>
-                </Button>
-                <Button Opacity="1" Style="{DynamicResource WithAnimation}"  HorizontalAlignment="Right" Width="30" Background="{x:Null}"  >
-                    <Image Source="/images/mainWindowImades/cancel-music.png" Height="13"/>
-                </Button>
-            </StackPanel>
-        </Grid>
-        <Grid Panel.ZIndex="1" Name="GridMenu" Width="50" Background="#31383e" HorizontalAlignment="Left">
-            <StackPanel>
-                <Grid Height="30">
-                    <Button Padding="0" x:Name="ButtonCloseMenu" Width="50" Visibility="Collapsed" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" >
-                        <materialdesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>
-                    </Button>
-                    <Button Padding="0" x:Name="ButtonOpenMenu" Width="50"   VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right"  Height="31" >
-                        <materialdesign:PackIcon Kind="Menu" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>
-                    </Button>
-                </Grid>
-                <ListBox Foreground="#ff1368bd">
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/mainWindowImades/OneDrive_23654.png" Height="28" Width="28"/>
-                            <Border Margin="18,0,0,0" BorderBrush="{x:Null}" Width="135">
-                                <ComboBox Foreground="LightGray" SelectedIndex="0">
-                                    <ComboBoxItem Height="20" Content="1"/>
-                                    <ComboBoxItem Height="20" Content="2"/>
-                                    <ComboBoxItem Height="20" Content="3"/>
-                                </ComboBox>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/mainWindowImades/Google_Driv.png" Height="28" Width="28"/>
-                            <Border Margin="18,0,0,0" BorderBrush="{x:Null}" Width="135">
-                                <ComboBox >
-                                    <ComboBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel />
-                                        </ItemsPanelTemplate>
-                                    </ComboBox.ItemsPanel>
-                                </ComboBox>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/mainWindowImades/mail_cloud.png" Height="28" Width="28"/>
-                            <Border Margin="18,0,0,0" BorderBrush="{x:Null}" Width="135">
-                                <ComboBox >
-                                    <ComboBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel />
-                                        </ItemsPanelTemplate>
-                                    </ComboBox.ItemsPanel>
-                                </ComboBox>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListBox>
-            </StackPanel>
-            -->
-    <!--<Grid Grid.Row="0" Background="#22272a">
-                <Button x:Name="ButtonCloseMenu" Width="50"  Height="30" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Click="ButtonCloseMenu_Click">
-                    <materialdesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>
-                </Button>
-                <Button x:Name="ButtonOpenMenu" Width="50" Visibility="Collapsed" Height="30" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
-                    <materialdesign:PackIcon Kind="Menu" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>
-                </Button>
-            </Grid>--><!--
-            <Grid Grid.Row="1">
-                <ListView>
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/onedrive.png" Height="25" Width="25"/>
-                            <Border BorderBrush="{x:Null}">
-                                <TextBlock Foreground="LightGray" TextWrapping="Wrap" VerticalAlignment="Center" Margin="20,0,0,0" Text="Onedrive"/>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/onedrive.png" Height="25" Width="25"/>
-                            <Border BorderBrush="{x:Null}">
-                                <TextBlock Foreground="LightGray" TextWrapping="Wrap" VerticalAlignment="Center" Margin="20,0,0,0" Text="Onedrive"/>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/onedrive.png" Height="25" Width="25"/>
-                            <Border BorderBrush="{x:Null}">
-                                <TextBlock Foreground="LightGray" TextWrapping="Wrap" VerticalAlignment="Center" Margin="20,0,0,0" Text="Onedrive"/>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-            </Grid>
-        </Grid>
-        
-    </Grid>-->
+    
    
 </Window>

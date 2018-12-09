@@ -64,7 +64,7 @@ namespace CloudManader1._0
         #endregion
 
         #region Methods
-
+       
         /// <summary>
         /// Hide close menu button when menu is closed
         /// </summary>
@@ -147,6 +147,11 @@ namespace CloudManader1._0
         /// The height of the title bar
         /// </summary>
         public GridLength TitleHeigthGridLine { get { return new GridLength(TitleHeight+ResizeBorder); } }
+
+        /// <summary>
+        /// The current page of the application
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Start;
         #endregion
 
         #region Commands
@@ -175,6 +180,8 @@ namespace CloudManader1._0
         /// Close menu 
         /// </summary>
         public ICommand CloseMenuButtonCommand { get; set; }
+
+
         #endregion
 
 
