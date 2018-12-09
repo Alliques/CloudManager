@@ -16,7 +16,7 @@ namespace CloudManader1._0
     /// </summary>
     public class WindowViewModel : BaseViewModel
     {
-        #region Private Members
+        #region Private 
 
         /// <summary>
         /// the window this view model controls
@@ -42,6 +42,7 @@ namespace CloudManader1._0
         public WindowViewModel(Window window)
         {
             mWindow = window;
+            CloseMenuButtonVisibility = Visibility.Collapsed;
             mWindow.StateChanged += (sender, e) => 
             {
                 OnPropertyChanged(nameof(ResizeBorderThikness));
@@ -55,12 +56,44 @@ namespace CloudManader1._0
             MinimizeWindowCommand = new RelayCommand(()=> mWindow.WindowState = WindowState.Minimized);
             MaximizeWindowCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
             CloseWindowCommand = new RelayCommand(() => mWindow.Close());
+            OpenMenuButtonCommand = new RelayCommand(() => OpenMenu());
+            CloseMenuButtonCommand = new RelayCommand(() => CloseMenu());
             var resizer = new WindowResizer(mWindow);
         }
 
         #endregion
 
+        #region Methods
+
+        /// <summary>
+        /// Hide close menu button when menu is closed
+        /// </summary>
+        private void CloseMenu()
+        {
+            OpenMenuButtonVisibility = Visibility.Visible;
+            CloseMenuButtonVisibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// Hide open menu button when menu is opened
+        /// </summary>
+        private void OpenMenu()
+        {
+            OpenMenuButtonVisibility = Visibility.Collapsed;
+            CloseMenuButtonVisibility = Visibility.Visible;
+        }
+        #endregion
+
         #region Public properties
+        /// <summary>
+        /// open menu button visiblity
+        /// </summary>
+        public Visibility OpenMenuButtonVisibility { get; set; }
+
+        /// <summary>
+        /// close menu button visiblity
+        /// </summary>
+        public Visibility CloseMenuButtonVisibility { get; set; }
 
         /// <summary>
         /// the size of the  resize border around the window
@@ -133,9 +166,17 @@ namespace CloudManader1._0
         /// </summary>
         public ICommand CloseWindowCommand { get; set; }
 
+        /// <summary>
+        /// Open menu 
+        /// </summary>
+        public ICommand OpenMenuButtonCommand { get; set; }
 
+        /// <summary>
+        /// Close menu 
+        /// </summary>
+        public ICommand CloseMenuButtonCommand { get; set; }
         #endregion
 
-      
+
     }
 }
