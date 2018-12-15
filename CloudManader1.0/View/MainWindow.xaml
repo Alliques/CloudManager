@@ -75,7 +75,7 @@
                         <materialdesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>
                     </Button>
                     <Button Command="{Binding OpenMenuButtonCommand}" Padding="0" x:Name="ButtonOpenMenu" Width="50" Visibility="{Binding OpenMenuButtonVisibility, FallbackValue=Visible}"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right"  Height="31" >
-                        <materialdesign:PackIcon Kind="Menu" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>
+                        <materialdesign:PackIcon Margin="0,3,0,0" Kind="Menu" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>
                     </Button>
                 </Grid>
                 
@@ -83,7 +83,9 @@
                 <ListBox Foreground="#ff1368bd">
                     <ListViewItem>
                         <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource NoChromeButton}">
                             <Image Source="/images/mainWindowImades/OneDrive_23654.png" Height="30" Width="30"/>
+                            </Button>
                             <Border Margin="18,0,0,0" BorderBrush="{x:Null}" Width="135">
                                 <ComboBox Foreground="LightGray" SelectedIndex="0">
                                     <ComboBoxItem Height="20" Content="1"/>
@@ -95,7 +97,9 @@
                     </ListViewItem>
                     <ListViewItem>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/mainWindowImades/Google_Driv.png" Height="30" Width="30"/>
+                            <Button Style="{StaticResource NoChromeButton}">
+                                <Image Source="/images/mainWindowImades/Google_Driv.png" Height="30" Width="30"/>
+                            </Button>
                             <Border Margin="18,0,0,0" BorderBrush="{x:Null}" Width="135">
                                 <ComboBox >
                                     <ComboBox.ItemsPanel>
@@ -109,7 +113,9 @@
                     </ListViewItem>
                     <ListViewItem>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/mainWindowImades/mail_cloud.png" Height="30" Width="30"/>
+                            <Button Style="{StaticResource NoChromeButton}">
+                                <Image Source="/images/mainWindowImades/mail_cloud.png" Height="30" Width="30"/>
+                            </Button>
                             <Border Margin="18,0,0,0" BorderBrush="{x:Null}" Width="135">
                                 <ComboBox >
                                     <ComboBox.ItemsPanel>
@@ -119,6 +125,13 @@
                                     </ComboBox.ItemsPanel>
                                 </ComboBox>
                             </Border>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Command="{Binding AddAccount}" Style="{StaticResource NoChromeButton}">
+                                <Image Source="/images/mainWindowImades/addbutton1.png" Height="30" Width="30"/>
+                            </Button>
                         </StackPanel>
                     </ListViewItem>
                 </ListBox>
