@@ -1,5 +1,4 @@
-﻿using System.Windows.Controls;
-
+﻿
 namespace CloudManader1._0
 {
     /// <summary>
@@ -10,6 +9,7 @@ namespace CloudManader1._0
         public LoginPage()
         {
             InitializeComponent();
+            this.DataContext = new LoginPageViewModel();
         }
     }
 }

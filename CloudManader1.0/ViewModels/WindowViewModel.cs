@@ -1,11 +1,4 @@
-﻿using CloudManader1._0.ViewModels;
-using Fasetto.Word;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Fasetto.Word;
 using System.Windows;
 using System.Windows.Input;
 
@@ -58,6 +51,7 @@ namespace CloudManader1._0
             CloseWindowCommand = new RelayCommand(() => mWindow.Close());
             OpenMenuButtonCommand = new RelayCommand(() => OpenMenu());
             CloseMenuButtonCommand = new RelayCommand(() => CloseMenu());
+            OpenNewAccountPage = new RelayCommand(() => OpenPageNewAccountAdded());
             var resizer = new WindowResizer(mWindow);
         }
 
@@ -81,6 +75,11 @@ namespace CloudManader1._0
         {
             OpenMenuButtonVisibility = Visibility.Collapsed;
             CloseMenuButtonVisibility = Visibility.Visible;
+        }
+
+        private void OpenPageNewAccountAdded()
+        {
+            CurrentPage = ApplicationPage.AddAccount;
         }
         #endregion
 
@@ -181,7 +180,10 @@ namespace CloudManader1._0
         /// </summary>
         public ICommand CloseMenuButtonCommand { get; set; }
 
-
+        /// <summary>
+        /// Еhe page for adding a new account
+        /// </summary>
+        public ICommand OpenNewAccountPage { get; set; }
         #endregion
 
 

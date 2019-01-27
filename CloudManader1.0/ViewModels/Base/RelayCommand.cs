@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace CloudManader1._0.ViewModels
+namespace CloudManader1._0
 {
     public class RelayCommand : ICommand
     {
