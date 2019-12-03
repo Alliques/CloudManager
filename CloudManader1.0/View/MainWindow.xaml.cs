@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CloudManader1._0.Windows;
+using System;
+using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using static CloudManader1._0.Windows.GlassHelper;
 
 namespace CloudManader1._0
 {
@@ -25,6 +19,9 @@ namespace CloudManader1._0
             InitializeComponent();
             this.DataContext = new WindowViewModel(this);
         }
+
+        
+       
 
         private void DragWindowHeader(object sender, MouseButtonEventArgs e)
         {
@@ -41,7 +38,60 @@ namespace CloudManader1._0
                 }
             }
         }
+        internal void EnableBlur()
+        {
+            var windowHelper = new WindowInteropHelper(this);
 
-       
+            var accent = new AccentPolicy();
+            var accentStructSize = Marshal.SizeOf(accent);
+            accent.AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND;
+
+            var accentPtr = Marshal.AllocHGlobal(accentStructSize);
+            Marshal.StructureToPtr(accent, accentPtr, false);
+
+            var data = new WindowCompositionAttributeData();
+            data.Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY;
+            data.SizeOfData = accentStructSize;
+            data.Data = accentPtr;
+
+            SetWindowCompositionAttribute(windowHelper.Handle, ref data);
+
+            Marshal.FreeHGlobal(accentPtr);
+        }
+        private void AppWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                EnableBlur();
+                
+                IntPtr mainWindowPtr = new WindowInteropHelper(this).Handle;
+                HwndSource mainWindowSrc = HwndSource.FromHwnd(mainWindowPtr);
+                mainWindowSrc.CompositionTarget.BackgroundColor = Color.FromArgb(0, 0, 0, 0);
+
+                // Get System Dpi
+                System.Drawing.Graphics desktop = System.Drawing.Graphics.FromHwnd(mainWindowPtr);
+                float DesktopDpiX = desktop.DpiX;
+                float DesktopDpiY = desktop.DpiY;
+
+                GlassHelper.MARGINS margins = new GlassHelper.MARGINS();
+
+                margins.cxLeftWidth = Convert.ToInt32(5 * (DesktopDpiX / 96));
+                margins.cxRightWidth = Convert.ToInt32(5 * (DesktopDpiX / 96));
+                margins.cyTopHeight = Convert.ToInt32(5 * (DesktopDpiX / 96));
+                margins.cyBottomHeight = Convert.ToInt32(5 * (DesktopDpiX / 96));
+
+                int hr = GlassHelper.DwmExtendFrameIntoClientArea(mainWindowSrc.Handle, ref margins);
+                //
+                if (hr < 0)
+                {
+                    //DwmExtendFrameIntoClientArea Failed
+                }
+            }
+            // If not Vista, paint background white.
+            catch (DllNotFoundException)
+            {
+                Application.Current.MainWindow.Background = Brushes.White;
+            }
+        }
     }
 }
