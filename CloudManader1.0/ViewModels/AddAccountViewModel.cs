@@ -14,16 +14,21 @@ namespace CloudManader1._0
         #region Constructor
         public AddAccountViewModel()
         {
+            //CurrentPage = page;
             ClosePage = new RelayCommand(async () => await CloseThisPageMethodAsync());
         }
         #endregion
 
         #region Methods
+        //private async System.Threading.Tasks.Task CloseThisPageMethodAsync()
+        //{
+
+        //    await CurrentPage.AnimateOut();
+        //}
         public async Task CloseThisPageMethodAsync()
         {
             ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Login;
-
-            await Task.Delay(1);
+            await Task.Delay(500);
         }
         #endregion
 

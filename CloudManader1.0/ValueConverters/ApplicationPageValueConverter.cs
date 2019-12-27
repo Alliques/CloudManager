@@ -13,7 +13,7 @@ namespace CloudManader1._0
                 case ApplicationPage.Login:
                     return new LoginPage();
                 case ApplicationPage.AddAccount:
-                    return new AddAccount();
+                    return new AddAccountPage();
                 default:
                     Debugger.Break();
                     return null;

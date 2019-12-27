@@ -4,9 +4,9 @@ namespace CloudManader1._0
     /// <summary>
     /// Interaction logic for AddNewAccountPage.xaml
     /// </summary>
-    public partial class AddAccount : BasePage<AddAccountViewModel>
+    public partial class AddAccountPage : BasePage<AddAccountViewModel>
     {
-        public AddAccount()
+        public AddAccountPage()
         {
             InitializeComponent();
         }

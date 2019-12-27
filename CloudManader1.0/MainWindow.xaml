@@ -14,10 +14,105 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Window.Background>
+    <!--<Window.Background>
         <ImageBrush ImageSource="../images/mainWindowImades/Mountains.jpg" />
-    </Window.Background>
-    <Grid>
+    </Window.Background>-->
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="{Binding TitleHeight}"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            ResizeBorderThickness="{Binding ResizeBorderThikness}" />
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <Border Padding="{Binding OuterMarginSizeThikness, FallbackValue=1}">
+                            <Grid>
+                                <Border Background="{Binding ForegroundLightBrush, FallbackValue=White}" CornerRadius="{Binding WindowCornerRadius}">
+                                    <Border.Effect>
+                                        <DropShadowEffect Opacity="0.2" ShadowDepth="0" />
+                                    </Border.Effect>
+                                </Border>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="{Binding TitleHeigthGridLine, FallbackValue=30}" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid
+                                        Grid.Column="0"
+                                        Panel.ZIndex="1"
+                                        Background="{StaticResource TitleBackgroundColorBrush}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            VerticalAlignment="Center"
+                                            Foreground="{StaticResource TitleIconsColorBrush}"
+                                            Text="&#xf260;" />
+                                        <StackPanel
+                                            Grid.Column="2"
+                                            Margin="0,0,15,0"
+                                            Orientation="Horizontal">
+                                            <Button
+                                                Width="15"
+                                                Height="15"
+                                                Margin="0,0,20,0"
+                                                Command="{Binding MinimizeWindowCommand}"
+                                                Style="{StaticResource NoChromeButton}">
+                                                <ContentControl
+                                                    Width="8"
+                                                    Height="8"
+                                                    Content="{Binding Source={StaticResource MinimizeBtn}}" />
+                                            </Button>
+                                            <Button
+                                                Width="15"
+                                                Height="15"
+                                                Margin="0,0,20,0"
+                                                Padding="0"
+                                                Command="{Binding MaximizeWindowCommand}"
+                                                Style="{StaticResource NoChromeButton}">
+                                                <ContentControl
+                                                    Width="8"
+                                                    Height="8"
+                                                    Content="{Binding Source={StaticResource ExpandBtn}}" />
+                                            </Button>
+                                            <Button
+                                                Width="15"
+                                                Height="15"
+                                                Padding="0"
+                                                Command="{Binding CloseWindowCommand}"
+                                                Style="{StaticResource NoChromeButton}">
+                                                <ContentControl
+                                                    Width="8"
+                                                    Height="8"
+                                                    Content="{Binding Source={StaticResource CloseBtn}}" />
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Border Grid.Row="2">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid >
+        <Frame Source="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
+    </Grid>
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150" />
             <ColumnDefinition />
@@ -79,6 +174,7 @@
             <StackPanel>
                 <control:RippleButton
                     Height="40"
+                    Command="{Binding OpenNewAccountPage}"
                     Content="Menu1"
                     FontFamily="Tahoma"
                     FontSize="14"
@@ -111,291 +207,5 @@
         <Grid Grid.Row="1" Grid.Column="1">
             <Frame Source="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
         </Grid>
-    </Grid>
-    <!--<Grid Background="#B2141918">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60" />
-            <ColumnDefinition Width="110" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid
-            Grid.Row="0"
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-            Panel.ZIndex="1"
-            Background="Transparent"
-            MouseLeftButtonDown="DragWindowHeader">
-            <StackPanel
-                Height="20"
-                Margin="0,0,20,0"
-                HorizontalAlignment="Right"
-                Orientation="Horizontal">
-                <Button
-                    Width="8"
-                    Height="8"
-                    Margin="0,0,20,0"
-                    Padding="0"
-                    VerticalAlignment="Bottom"
-                    VerticalContentAlignment="Bottom"
-                    Command="{Binding MinimizeWindowCommand}"
-                    Style="{StaticResource NoChromeButton}">
-                    <ContentControl Content="{Binding Source={StaticResource MinimizeBtn}}" />
-                </Button>
-                <Button
-                    Width="8"
-                    Height="8"
-                    Margin="0,0,20,0"
-                    Padding="0"
-                    VerticalAlignment="Bottom"
-                    VerticalContentAlignment="Bottom"
-                    Command="{Binding MaximizeWindowCommand}"
-                    Style="{StaticResource NoChromeButton}">
-                    <ContentControl Content="{Binding Source={StaticResource ExpandBtn}}" />
-                </Button>
-                <Button
-                    Width="8"
-                    Height="8"
-                    Margin="0,0,20,0"
-                    Padding="0"
-                    VerticalAlignment="Bottom"
-                    VerticalContentAlignment="Bottom"
-                    Command="{Binding CloseWindowCommand}"
-                    Style="{StaticResource NoChromeButton}">
-                    <ContentControl Content="{Binding Source={StaticResource CloseBtn}}" />
-                </Button>
-            </StackPanel>
-        </Grid>
-        <Grid
-            x:Name="ContentScreen"
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
-            Background="#FF3E3E3E"
-            Opacity="1" >
-
-        </Grid>
-        <Grid
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            Grid.Column="0"
-            Grid.ColumnSpan="2">
-            <Button
-                x:Name="ButtonCloseMenu"
-                Width="50"
-                Height="40"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Command="{Binding CloseMenuButtonCommand}" />
-            <Button
-                x:Name="ButtonOpenMenu"
-                Width="50"
-                Height="40"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Command="{Binding OpenMenuButtonCommand}" />
-        </Grid>
-    </Grid>-->
-    <!--<Grid Background="#FFEDFBFB">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-    -->
-    <!--  Window header  -->
-    <!--
-        <Grid
-            Grid.Row="0"
-            Grid.ColumnSpan="2"
-            Height="30"
-            VerticalAlignment="Top"
-            MouseLeftButtonDown="DragWindowHeader">
-            <Grid.InputBindings>
-                <MouseBinding Command="{Binding WindowHeaderInteraction}" Gesture="LeftDoubleClick" />
-            </Grid.InputBindings>
-            <StackPanel
-                Width="90"
-                HorizontalAlignment="Right"
-                Orientation="Horizontal">
-                <Button
-                    Width="30"
-                    Margin="0,0,0,0"
-                    HorizontalAlignment="Right"
-                    Background="{x:Null}"
-                    Command="{Binding MinimizeWindowCommand}"
-                    Opacity="1"
-                    Style="{DynamicResource WithAnimation}">
-                    <Image Height="13" Source="/images/mainWindowImades/HideWin.png" />
-                </Button>
-                <Button
-                    Width="30"
-                    Margin="0,0,0,0"
-                    HorizontalAlignment="Right"
-                    Background="{x:Null}"
-                    Command="{Binding MaximizeWindowCommand}"
-                    Opacity="1"
-                    Style="{DynamicResource WithAnimation}">
-                    <Image
-                        Name="max_minImage"
-                        Height="13"
-                        Source="/images/mainWindowImades/full-screen.png" />
-                </Button>
-                <Button
-                    Width="30"
-                    HorizontalAlignment="Right"
-                    Background="{x:Null}"
-                    Command="{Binding CloseWindowCommand}"
-                    Opacity="1"
-                    Style="{DynamicResource WithAnimation}">
-                    <Image Height="13" Source="/images/mainWindowImades/cancel-music.png" />
-                </Button>
-            </StackPanel>
-        </Grid>
-
-    -->
-    <!--  Main menu  -->
-    <!--
-        <Grid
-            Opacity="60"
-            x:Name="HumburgerMenu"
-            Grid.ColumnSpan="2"
-            Panel.ZIndex="1"
-            Background="#FF3A5752" Margin="0,29.973,0,0" Grid.RowSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-    -->
-    <!--  Menu conteiner  -->
-    <!--
-            <StackPanel>
-                <Grid Height="30">
-                    <Button
-                        x:Name="ButtonCloseMenu"
-                        Width="50"
-                        Padding="0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Background="{x:Null}"
-                        BorderBrush="{x:Null}"
-                        Command="{Binding CloseMenuButtonCommand}"
-                        Visibility="{Binding CloseMenuButtonVisibility, FallbackValue=Collapsed}">
-    -->
-    <!--<materialdesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>-->
-    <!--
-                    </Button>
-                    <Button
-                        x:Name="ButtonOpenMenu"
-                        Width="50"
-                        Height="31"
-                        Padding="0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Background="{x:Null}"
-                        BorderBrush="{x:Null}"
-                        Command="{Binding OpenMenuButtonCommand}"
-                        Visibility="{Binding OpenMenuButtonVisibility, FallbackValue=Visible}">
-    -->
-    <!--<materialdesign:PackIcon Margin="0,3,0,0" Kind="Menu" HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="25"/>-->
-    <!--
-                    </Button>
-                </Grid>
-
-    -->
-    <!--  Menu items  -->
-    <!--
-                <ListBox
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Foreground="#ff1368bd"
-                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Button Style="{StaticResource NoChromeButton}">
-                                <Image
-                                    Width="30"
-                                    Height="30"
-                                    Source="/images/mainWindowImades/OneDrive_23654.png" />
-                            </Button>
-                            <Border
-                                Width="135"
-                                Margin="18,0,0,0"
-                                BorderBrush="{x:Null}">
-                                <ComboBox Foreground="LightGray" SelectedIndex="0">
-                                    <ComboBoxItem Height="20" Content="1" />
-                                    <ComboBoxItem Height="20" Content="2" />
-                                    <ComboBoxItem Height="20" Content="3" />
-                                </ComboBox>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Button Style="{StaticResource NoChromeButton}">
-                                <Image
-                                    Width="30"
-                                    Height="30"
-                                    Source="/images/mainWindowImades/Google_Driv.png" />
-                            </Button>
-                            <Border
-                                Width="135"
-                                Margin="18,0,0,0"
-                                BorderBrush="{x:Null}">
-                                <ComboBox>
-                                    <ComboBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel />
-                                        </ItemsPanelTemplate>
-                                    </ComboBox.ItemsPanel>
-                                </ComboBox>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Button Style="{StaticResource NoChromeButton}">
-                                <Image
-                                    Width="30"
-                                    Height="30"
-                                    Source="/images/mainWindowImades/mail_cloud.png" />
-                            </Button>
-                            <Border
-                                Width="135"
-                                Margin="18,0,0,0"
-                                BorderBrush="{x:Null}">
-                                <ComboBox>
-                                    <ComboBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel />
-                                        </ItemsPanelTemplate>
-                                    </ComboBox.ItemsPanel>
-                                </ComboBox>
-                            </Border>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Button Command="{Binding OpenNewAccountPage}" Style="{StaticResource NoChromeButton}">
-                                <Image
-                                    Width="30"
-                                    Height="30"
-                                    Source="/images/mainWindowImades/addbutton1.png" />
-                            </Button>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListBox>
-            </StackPanel>
-        </Grid>
-
-
     </Grid>-->
 </Window>

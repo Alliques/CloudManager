@@ -10,7 +10,7 @@ namespace CloudManader1._0
     /// Base functional for all pages
     /// </summary>
     public class BasePage<VM> : Page
-        where VM : BaseViewModel, new()
+         where VM : BaseViewModel, new()
     {
         #region Private member
         private VM mViewModel;

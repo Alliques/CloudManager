@@ -7,9 +7,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/SvgIcons.xaml" />
-                <ResourceDictionary Source="Resources/LightThemeResources.xaml" />
-                <ResourceDictionary Source="Resources/ControlsTempates.xaml" />
+                <ResourceDictionary Source="Styles/Colors.xaml" />
+                <ResourceDictionary Source="Styles/SvgIcons.xaml" />
+                <ResourceDictionary Source="Styles/LightThemeResources.xaml" />
+                <ResourceDictionary Source="Styles/ControlsTempates.xaml" />
+                <ResourceDictionary Source="Styles/Fonts.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <!--<ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />

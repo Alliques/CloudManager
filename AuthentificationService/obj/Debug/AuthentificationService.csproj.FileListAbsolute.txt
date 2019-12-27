@@ -10,3 +10,9 @@ C:\Users\NAU\Desktop\projects\CloudManager\AuthentificationService\obj\Debug\Aut
 C:\Users\NAU\Desktop\projects\CloudManager\AuthentificationService\obj\Debug\AuthentificationService.csproj.CoreCompileInputs.cache
 C:\Users\NAU\Desktop\projects\CloudManager\AuthentificationService\obj\Debug\AuthentificationService.dll
 C:\Users\NAU\Desktop\projects\CloudManager\AuthentificationService\obj\Debug\AuthentificationService.pdb
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\AuthentificationService\bin\Debug\AuthentificationService.dll
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\AuthentificationService\bin\Debug\AuthentificationService.pdb
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\AuthentificationService\obj\Debug\AuthentificationService.csprojAssemblyReference.cache
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\AuthentificationService\obj\Debug\AuthentificationService.csproj.CoreCompileInputs.cache
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\AuthentificationService\obj\Debug\AuthentificationService.dll
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\AuthentificationService\obj\Debug\AuthentificationService.pdb
