@@ -17,7 +17,7 @@ namespace CloudManader1._0
         #endregion
 
         #region Properties
-        public readonly PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideFromRight;
+        public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideFromRight;
 
         public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideFromLeft;
 
