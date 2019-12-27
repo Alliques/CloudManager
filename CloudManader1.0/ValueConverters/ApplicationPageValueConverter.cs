@@ -10,10 +10,10 @@ namespace CloudManader1._0
         {
             switch ((ApplicationPage)value)
             {
-                case ApplicationPage.Start:
+                case ApplicationPage.Login:
                     return new LoginPage();
                 case ApplicationPage.AddAccount:
-                    return new AddNewAccountPage();
+                    return new AddAccount();
                 default:
                     Debugger.Break();
                     return null;

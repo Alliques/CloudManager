@@ -9,14 +9,39 @@ namespace CloudManader1._0
     /// <summary>
     /// Base functional for all pages
     /// </summary>
-    public class BasePage : Page
+    public class BasePage<VM> : Page
+        where VM : BaseViewModel, new()
     {
+        #region Private member
+        private VM mViewModel;
+        #endregion
+
         #region Properties
         public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideFromRight;
 
         public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideFromLeft;
 
         public float SlideSeconds { get; set; } = 0.8f;
+
+        /// <summary>
+        /// The viewModel assotiated with this page
+        /// </summary>
+        public VM ViewModel
+        {
+            get
+            {
+                return mViewModel;
+            }
+            set
+            {
+                if (mViewModel == value)
+                    return;
+
+                mViewModel = value;
+
+                this.DataContext = mViewModel;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -25,8 +50,12 @@ namespace CloudManader1._0
             if (this.PageLoadAnimation != PageAnimation.None)
                 this.Visibility = System.Windows.Visibility.Collapsed;
             this.Loaded += Page_Loaded;
+
+            this.ViewModel = new VM();
         }
         #endregion
+
+
 
         private async void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {

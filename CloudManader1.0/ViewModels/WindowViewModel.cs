@@ -150,7 +150,7 @@ namespace CloudManader1._0
         /// <summary>
         /// The current page of the application
         /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Start;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.AddAccount;
         #endregion
 
         #region Commands

@@ -11,7 +11,6 @@
     Width="800"
     Height="450"
     AllowsTransparency="True"
-    Loaded="AppWindow_Loaded"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
@@ -27,9 +26,9 @@
             <RowDefinition Height="30" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Grid.ColumnSpan="2" Background="#FF131B2C" MouseLeftButtonDown="DragWindowHeader">
+        <Grid Grid.ColumnSpan="2" Background="#FF131B2C">
             <Grid.InputBindings>
-                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding WindowHeaderInteraction}"/>
+                <MouseBinding Command="{Binding WindowHeaderInteraction}" Gesture="LeftDoubleClick" />
             </Grid.InputBindings>
             <StackPanel
                 Height="20"
@@ -110,10 +109,7 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.Background>
-                <SolidColorBrush Opacity="0.85" Color="#EDF1F4" />
-            </Grid.Background>
-            <Grid Margin="15" Background="#EDF1F4" />
+            <Frame Source="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
         </Grid>
     </Grid>
     <!--<Grid Background="#B2141918">

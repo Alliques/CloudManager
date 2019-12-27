@@ -14,7 +14,7 @@ namespace CloudManader1._0
         /// <summary>
         /// initial start page
         /// </summary>
-        Start=0,
+        Login=0,
         AddAccount=1,
     }
 }
