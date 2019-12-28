@@ -23,9 +23,9 @@ namespace CloudManader1._0
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new WindowViewModel(this);
+            this.DataContext = new MainViewModel(this);
         }
-
+        
         private void DragWindowHeader(object sender, MouseButtonEventArgs e)
         {
             AppWindow.DragMove();
@@ -42,6 +42,5 @@ namespace CloudManader1._0
             }
         }
 
-       
     }
 }

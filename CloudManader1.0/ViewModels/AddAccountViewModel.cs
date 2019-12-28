@@ -27,7 +27,7 @@ namespace CloudManader1._0
         //}
         public async Task CloseThisPageMethodAsync()
         {
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Start;
+            ((MainViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Start;
             await Task.Delay(500);
         }
         #endregion

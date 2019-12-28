@@ -7,7 +7,7 @@ namespace CloudManader1._0
     /// <summary>
     /// the View  Model for the custom window
     /// </summary>
-    public class WindowViewModel : BaseViewModel
+    public class MainViewModel : BaseViewModel
     {
         #region Private 
 
@@ -32,7 +32,7 @@ namespace CloudManader1._0
         /// <summary>
         /// Defoult constructor
         /// </summary>
-        public WindowViewModel(Window window)
+        public MainViewModel(Window window)
         {
             mWindow = window;
             CloseMenuButtonVisibility = Visibility.Collapsed;
