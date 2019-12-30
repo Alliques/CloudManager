@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace CloudManader1._0.Animation
+namespace CloudManager.Animation
 {
     public static class StoryboardHelpers
     {

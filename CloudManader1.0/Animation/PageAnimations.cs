@@ -2,8 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using CloudManader1._0.Animation;
-namespace CloudManader1._0
+using CloudManager.Animation;
+namespace CloudManager
 {
     public static class PageAnimations
     {

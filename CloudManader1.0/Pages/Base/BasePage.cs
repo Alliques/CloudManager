@@ -1,16 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using CloudManader1._0.Animation;
-namespace CloudManader1._0
+using CloudManager.Core;
+
+namespace CloudManager
 {
     /// <summary>
     /// Base functional for all pages
     /// </summary>
     public class BasePage<VM> : Page
-        where VM:BaseViewModel,new()
+        where VM : BaseViewModel, new()
     {
         #region Private member
         private VM mViewModel;
@@ -28,10 +26,7 @@ namespace CloudManader1._0
         /// </summary>
         public VM ViewModel
         {
-            get
-            {
-                return mViewModel;
-            }
+            get=> mViewModel;
             set
             {
                 if (mViewModel == value)

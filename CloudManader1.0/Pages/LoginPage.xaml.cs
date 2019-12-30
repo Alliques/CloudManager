@@ -1,5 +1,7 @@
 ﻿
-namespace CloudManader1._0
+using CloudManager.Core;
+
+namespace CloudManager
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml

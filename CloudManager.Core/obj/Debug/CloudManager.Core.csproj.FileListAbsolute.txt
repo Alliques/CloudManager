@@ -1,0 +1,9 @@
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\bin\Debug\CloudManager.Core.dll
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\bin\Debug\CloudManager.Core.pdb
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\obj\Debug\CloudManager.Core.csprojAssemblyReference.cache
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\obj\Debug\CloudManager.Core.csproj.CoreCompileInputs.cache
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\obj\Debug\CloudManager.Core.dll
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\obj\Debug\CloudManager.Core.pdb
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\bin\Debug\Ninject.dll
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\bin\Debug\Ninject.xml
+C:\Users\NAU\Desktop\projects\CloudManager\CloudManager\CloudManager.Core\obj\Debug\CloudManager.Core.csproj.CopyComplete

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudManager.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CloudManader1._0
+namespace CloudManager
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,24 +24,7 @@ namespace CloudManader1._0
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel(this);
+            this.DataContext = new WindowViewModel(this);
         }
-        
-        private void DragWindowHeader(object sender, MouseButtonEventArgs e)
-        {
-            AppWindow.DragMove();
-            if (e.ClickCount == 2)
-            {
-                if (AppWindow.WindowState == WindowState.Maximized)
-                {
-                    AppWindow.WindowState = WindowState.Normal;
-                }
-                else
-                {
-                    AppWindow.WindowState = WindowState.Maximized;
-                }
-            }
-        }
-
     }
 }

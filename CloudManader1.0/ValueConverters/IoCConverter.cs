@@ -2,19 +2,19 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
+using Ninject;
 
 namespace CloudManager
 {
-    public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
+    public class IoCConverter : BaseValueConverter<IoCConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            switch ((ApplicationPage)value)
+            switch ((string)parameter)
             {
-                case ApplicationPage.LoginPage:
-                    return new LoginPage();
-                case ApplicationPage.AddAccountPage:
-                    return new AddAccountPage();
+                case nameof(ApplicationViewModel):
+                    return IoC.Kernel.Get<ApplicationViewModel>();  
+                
                 default:
                     Debugger.Break();
                     return null;

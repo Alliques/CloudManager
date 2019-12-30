@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
-namespace CloudManader1._0.Styles
+namespace CloudManager.Styles
 {
     public class CustomizableButton:Button
     {
