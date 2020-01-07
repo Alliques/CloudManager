@@ -1,8 +1,9 @@
-﻿using System;
+﻿using CloudManager.Core;
+using System;
 using System.Diagnostics;
 using System.Globalization;
 
-namespace CloudManader1._0
+namespace CloudManager
 {
     public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
     {
@@ -10,9 +11,9 @@ namespace CloudManader1._0
         {
             switch ((ApplicationPage)value)
             {
-                case ApplicationPage.Start:
+                case ApplicationPage.LoginPage:
                     return new LoginPage();
-                case ApplicationPage.AddAccount:
+                case ApplicationPage.AddAccountPage:
                     return new AddAccountPage();
                 default:
                     Debugger.Break();

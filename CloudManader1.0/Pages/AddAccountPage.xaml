@@ -1,11 +1,13 @@
-﻿<local:BasePage x:TypeArguments="local:AddAccountViewModel"
-    x:Class="CloudManader1._0.AddAccountPage"
+﻿<local:BasePage
+    x:Class="CloudManager.AddAccountPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:CloudManager.Core;assembly=CloudManager.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:CloudManader1._0"
+    xmlns:local="clr-namespace:CloudManager"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="AddAccountPage"
+    x:TypeArguments="core:AddAccountViewModel"
     mc:Ignorable="d">
 
     <Grid>
@@ -16,14 +18,26 @@
             VerticalAlignment="Top"
             Command="{Binding ClosePage}" />
         <StackPanel Height="70" Orientation="Horizontal">
-            <Button Margin="5" Style="{StaticResource NoChromeButton}">
-                <Image Source="/images/mainWindowImades/Google_Driv.png" />
+            <Button
+                Margin="5"
+                Command="{Binding SelectCloudForAuth}"
+                CommandParameter="GoogleDrive"
+                Style="{StaticResource NoChromeButton}">
+                <Image Source="/Resources/images/mainWindowImades/Google_Driv.png" />
             </Button>
-            <Button Margin="5" Style="{StaticResource NoChromeButton}">
-                <Image Source="/images/mainWindowImades/OneDrive_23654.png" />
+            <Button
+                Margin="5"
+                Command="{Binding SelectCloudForAuth}"
+                CommandParameter="OneDrive"
+                Style="{StaticResource NoChromeButton}">
+                <Image Source="/Resources/images/mainWindowImades/OneDrive_23654.png" />
             </Button>
-            <Button Margin="5" Style="{StaticResource NoChromeButton}">
-                <Image Source="/images/mainWindowImades/OneDrive_23654.png" />
+            <Button
+                Margin="5"
+                Command="{Binding SelectCloudForAuth}"
+                CommandParameter="GoogleDrive"
+                Style="{StaticResource NoChromeButton}">
+                <Image Source="/Resources/images/mainWindowImades/OneDrive_23654.png" />
             </Button>
         </StackPanel>
     </Grid>

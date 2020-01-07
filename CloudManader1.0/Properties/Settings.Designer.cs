@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CloudManader1._0.Properties
+namespace CloudManager.Properties
 {
 
 

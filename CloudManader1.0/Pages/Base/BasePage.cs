@@ -1,65 +1,38 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using CloudManader1._0.Animation;
-namespace CloudManader1._0
+using CloudManager.Core;
+
+namespace CloudManager
 {
     /// <summary>
     /// Base functional for all pages
     /// </summary>
-    public class BasePage<VM> : Page
-        where VM:BaseViewModel,new()
+    public class BasePage :Page
     {
-        #region Private member
-        private VM mViewModel;
-        #endregion
-
-        #region Properties
         public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideFromRight;
 
         public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideFromLeft;
 
-        public float SlideSeconds { get; set; } = 0.8f;
+        public float SlideSeconds { get; set; } = 0.6f;
 
-        /// <summary>
-        /// The viewModel assotiated with this page
-        /// </summary>
-        public VM ViewModel
-        {
-            get
-            {
-                return mViewModel;
-            }
-            set
-            {
-                if (mViewModel == value)
-                    return;
-
-                mViewModel = value;
-
-                this.DataContext = mViewModel;
-            }
-        }
-        #endregion
-          
-        #region Constructor
+        public bool ShouldAnimateOut { get; set; }
         public BasePage()
         {
             if (this.PageLoadAnimation != PageAnimation.None)
                 this.Visibility = System.Windows.Visibility.Collapsed;
             this.Loaded += Page_Loaded;
-
-            this.ViewModel = new VM(); 
         }
-        #endregion
-
-
-
         private async void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            await AnimateIn();
+            if (ShouldAnimateOut)
+            {
+                await AnimateOut();
+            }
+            else
+            {
+                await AnimateIn();
+            }
+
         }
 
         /// <summary>
@@ -75,7 +48,7 @@ namespace CloudManader1._0
             {
                 case PageAnimation.SlideFromRight:
 
-                    await this.SlideAndFateInFromRight(this.SlideSeconds);
+                    await this.SlideAndFadeInFromRight(this.SlideSeconds);
 
                     break;
             }
@@ -93,10 +66,54 @@ namespace CloudManader1._0
             {
                 case PageAnimation.SlideFromLeft:
 
-                    await this.SlideAndFateInFromLeft(this.SlideSeconds);
+                    await this.SlideAndFateInToLeft(this.SlideSeconds);
 
                     break;
             }
         }
+    }
+
+    /// <summary>
+    /// A base page with added ViewModel support
+    /// </summary>
+    /// <typeparam name="VM"></typeparam>
+    public class BasePage<VM> : BasePage
+        where VM : Core.BaseViewModel, new()
+    {
+        #region Private member
+        private VM mViewModel;
+        #endregion
+
+        #region Properties
+       
+
+        /// <summary>
+        /// The viewModel assotiated with this page
+        /// </summary>
+        public VM ViewModel
+        {
+            get=> mViewModel;
+            set
+            {
+                if (mViewModel == value)
+                    return;
+
+                mViewModel = value;
+
+                this.DataContext = mViewModel;
+            }
+        }
+        #endregion
+          
+        #region Constructor
+        public BasePage() :base()
+        {
+            this.ViewModel = new VM(); 
+        }
+        #endregion
+
+
+
+       
     }
 }

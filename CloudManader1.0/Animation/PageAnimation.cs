@@ -1,6 +1,6 @@
 ﻿    
 
-namespace CloudManader1._0
+namespace CloudManager
 {
     public enum PageAnimation
     {

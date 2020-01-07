@@ -2,8 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using CloudManader1._0.Animation;
-namespace CloudManader1._0
+using CloudManager.Animation;
+namespace CloudManager
 {
     public static class PageAnimations
     {
@@ -13,9 +13,10 @@ namespace CloudManader1._0
         /// <param name="page">animate page</param>
         /// <param name="seconds">animation durate</param>
         /// <returns></returns>
-        public static async Task SlideAndFateInFromRight(this Page page,float seconds)
+        public static async Task SlideAndFadeInFromRight(this Page page,float seconds)
         {
             var storyboard = new Storyboard();
+
             storyboard.AddSlideFromRight(seconds, page.WindowWidth);
 
             //Slide from right animation
@@ -34,10 +35,10 @@ namespace CloudManader1._0
         /// <param name="page">animate page</param>
         /// <param name="seconds">animation durate</param>
         /// <returns></returns>
-        public static async Task SlideAndFateInFromLeft(this Page page, float seconds)
+        public static async Task SlideAndFateInToLeft(this Page page, float seconds)
         {
             var storyboard = new Storyboard();
-            storyboard.AddSlideFromLeft(seconds, page.WindowWidth);
+            storyboard.AddSlideToLeft(seconds, page.WindowWidth);
 
             //Slide from right animation
             storyboard.AddFadeOut(seconds);

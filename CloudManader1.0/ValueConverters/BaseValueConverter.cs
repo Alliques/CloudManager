@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace CloudManader1._0
+namespace CloudManager
 {
     /// <summary>
     /// base value converter 
