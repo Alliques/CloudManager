@@ -12,11 +12,16 @@ namespace CloudManager.Core
         }
         public async Task CloseThisPageMethodAsync()
         {
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.AddAccountPage;
-            // ((MainViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Start;
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.AddAccountPage);
             await Task.Delay(1);
         }
         public ICommand ClosePage { get; set; }
-        public string MyProperty { get; set; } = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=e6d2b189-15d4-472f-8ac9-ec6da36fcbed&scope=files.readwrite.all&response_type=code&redirect_uri=http://yandex.ru";
+    }
+    public enum AccountType
+    {
+        GoogleDrive,
+        OneDrive,
+        MailCloud,
+        YandexDisk
     }
 }

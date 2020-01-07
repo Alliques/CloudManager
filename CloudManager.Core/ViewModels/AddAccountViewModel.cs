@@ -1,40 +1,37 @@
-﻿
-using CloudManager;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace CloudManager.Core
 {
     public class AddAccountViewModel : BaseViewModel
     {
-        //public BasePage CurrentPage { get; set; }
-
         #region Constructor
         public AddAccountViewModel()
         {
-            //CurrentPage = page;
             ClosePage = new RelayCommand(async () => await CloseThisPageMethodAsync());
+            SelectCloudForAuth = new RelayParameterizedCommand(async (cloudType) => await SelectCloudForAuthCommand(cloudType));
         }
         #endregion
 
         #region Methods
-        //private async System.Threading.Tasks.Task CloseThisPageMethodAsync()
-        //{
-
-        //    await CurrentPage.AnimateOut();
-        //}
         public async Task CloseThisPageMethodAsync()
         {
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.LoginPage;
-            var e = IoC.Get<ApplicationViewModel>().CurrentPage;
-           // ((MainViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Start;
-            await Task.Delay(1);
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LoginPage);
+            await Task.Delay(500);
+        }
+
+        public async Task SelectCloudForAuthCommand(object cloudType)
+        {
+            IoC.Get<ApplicationViewModel>().CurrentAuthAdress = cloudType;
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LoginPage);
+            await Task.Delay(500);
         }
         #endregion
 
         #region Commands
         public ICommand ClosePage { get; set; }
+        public ICommand SelectCloudForAuth { get; set; }
         #endregion
     }
+   
 }

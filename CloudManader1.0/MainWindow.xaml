@@ -114,7 +114,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid ClipToBounds="True">
         <Grid.RowDefinitions>
             <RowDefinition />
         </Grid.RowDefinitions>
@@ -126,9 +126,10 @@
             Grid.Row="1"
             Grid.Column="1"
             Background="{StaticResource ContentBackgroundBrush}">
-            <Frame x:Name="MainFrame" Content="{Binding ApplicationViewModel.CurrentPage, 
-                                                        Source={x:Static local:ViewModelLocator.Instance}, 
-                                                        Converter={local:ApplicationPageValueConverter}}" />
+            <local:PageHost
+                d:DataContext=""
+                CurrentPage="{Binding}"
+                DataContext="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConverter}}" />
         </Grid>
         <Grid
             Grid.Row="0"

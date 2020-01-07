@@ -80,7 +80,7 @@ namespace CloudManager
 
         private void OpenPageNewAccountAdded()
         {
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.LoginPage;
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LoginPage);
         }
         #endregion
 

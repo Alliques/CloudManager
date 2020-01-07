@@ -13,9 +13,10 @@ namespace CloudManager
         /// <param name="page">animate page</param>
         /// <param name="seconds">animation durate</param>
         /// <returns></returns>
-        public static async Task SlideAndFateInFromRight(this Page page,float seconds)
+        public static async Task SlideAndFadeInFromRight(this Page page,float seconds)
         {
             var storyboard = new Storyboard();
+
             storyboard.AddSlideFromRight(seconds, page.WindowWidth);
 
             //Slide from right animation
@@ -34,10 +35,10 @@ namespace CloudManager
         /// <param name="page">animate page</param>
         /// <param name="seconds">animation durate</param>
         /// <returns></returns>
-        public static async Task SlideAndFateInFromLeft(this Page page, float seconds)
+        public static async Task SlideAndFateInToLeft(this Page page, float seconds)
         {
             var storyboard = new Storyboard();
-            storyboard.AddSlideFromLeft(seconds, page.WindowWidth);
+            storyboard.AddSlideToLeft(seconds, page.WindowWidth);
 
             //Slide from right animation
             storyboard.AddFadeOut(seconds);
