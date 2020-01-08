@@ -1,4 +1,6 @@
 ﻿
+using CefSharp;
+using CefSharp.Wpf;
 using CloudManager.Core;
 
 namespace CloudManager
@@ -11,6 +13,13 @@ namespace CloudManager
         public LoginPage()
         {
             InitializeComponent();
+            var settings = new BrowserSettings();
+        }
+        ~LoginPage()
+        {
+            browser.CleanupCommand.CanExecute(null);
+            browser.GetBrowser().Dispose();
+            browser.Dispose();
         }
     }
 }
