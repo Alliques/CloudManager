@@ -59,46 +59,38 @@
                                             FontSize="20"
                                             Foreground="{StaticResource TitleIconsColorBrush}"
                                             Text="&#xf260;" />
-                                        <StackPanel
-                                            Grid.Column="2"
-                                            Margin="0,0,15,0"
-                                            Orientation="Horizontal">
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
                                             <Button
-                                                Width="15"
-                                                Height="15"
-                                                Margin="0,0,20,0"
+                                                Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
                                                 Command="{Binding MinimizeWindowCommand}"
                                                 RenderTransformOrigin="0.5,0.76"
                                                 Style="{StaticResource NoChromeButton}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
                                                 <ContentControl
-                                                    Width="8"
-                                                    Height="8"
+                                                    Width="10"
+                                                    Height="10"
                                                     Content="{Binding Source={StaticResource MinimizeBtn}}" />
                                             </Button>
                                             <Button
-                                                Width="15"
-                                                Height="15"
-                                                Margin="0,0,20,0"
+                                                Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
                                                 Padding="0"
                                                 Command="{Binding MaximizeWindowCommand}"
                                                 Style="{StaticResource NoChromeButton}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
                                                 <ContentControl
-                                                    Width="8"
-                                                    Height="8"
+                                                    Width="10"
+                                                    Height="10"
                                                     Content="{Binding Source={StaticResource ExpandBtn}}" />
                                             </Button>
                                             <Button
-                                                Width="15"
-                                                Height="15"
+                                                Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
                                                 Padding="0"
                                                 Command="{Binding CloseWindowCommand}"
                                                 Style="{StaticResource NoChromeButton}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
                                                 <ContentControl
-                                                    Width="8"
-                                                    Height="8"
+                                                   Width="10"
+                                                    Height="10"
                                                     Content="{Binding Source={StaticResource CloseBtn}}" />
                                             </Button>
                                         </StackPanel>

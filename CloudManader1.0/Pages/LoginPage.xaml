@@ -8,14 +8,21 @@
     xmlns:local="clr-namespace:CloudManager"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="LoginPage"
+    d:DesignHeight="61.5"
+    d:DesignWidth="111.75"
     x:TypeArguments="core:LoginPageViewModel"
+    Unloaded="BasePage_Unloaded"
     mc:Ignorable="d">
-    <Grid Background="Green">
-        <!--<cef:ChromiumWebBrowser Address="{Binding MyProperty}" />-->
-        <Button
-            Width="60"
-            Height="40"
-            Command="{Binding ClosePage}" />
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Command="{Binding ClosePage}" />
+        <cef:ChromiumWebBrowser
+            x:Name="browser"
+            Grid.Row="1"
+            Address="{Binding Uri}"
+            FrameLoadEnd="Browser_FrameLoadEnd" />
     </Grid>
 </local:BasePage>
