@@ -67,8 +67,8 @@
                                                 Style="{StaticResource NoChromeButton}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
                                                 <ContentControl
-                                                    Width="8"
-                                                    Height="8"
+                                                    Width="10"
+                                                    Height="10"
                                                     Content="{Binding Source={StaticResource MinimizeBtn}}" />
                                             </Button>
                                             <Button
@@ -78,8 +78,8 @@
                                                 Style="{StaticResource NoChromeButton}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
                                                 <ContentControl
-                                                    Width="8"
-                                                    Height="8"
+                                                    Width="10"
+                                                    Height="10"
                                                     Content="{Binding Source={StaticResource ExpandBtn}}" />
                                             </Button>
                                             <Button
@@ -89,8 +89,8 @@
                                                 Style="{StaticResource NoChromeButton}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
                                                 <ContentControl
-                                                    Width="8"
-                                                    Height="8"
+                                                   Width="10"
+                                                    Height="10"
                                                     Content="{Binding Source={StaticResource CloseBtn}}" />
                                             </Button>
                                         </StackPanel>

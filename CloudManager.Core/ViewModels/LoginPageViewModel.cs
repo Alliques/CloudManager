@@ -25,7 +25,9 @@ namespace CloudManager.Core
                 case nameof(AccountType.GoogleDrive):
                     GoogleAuthorization googleAuthorization = new GoogleAuthorization();
                     googleAuthorization.Notify += (string uri)=> { this.Uri = uri; }; //или нет?
+                    googleAuthorization.TokenReceivedEvent += async () => { await CloseThisPageMethodAsync(); };
                     googleAuthorization.Authorization();
+                    
                     break;
                 case nameof(AccountType.OneDrive):
                     break;

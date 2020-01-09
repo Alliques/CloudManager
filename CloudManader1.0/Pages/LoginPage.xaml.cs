@@ -15,11 +15,15 @@ namespace CloudManager
             InitializeComponent();
             var settings = new BrowserSettings();
         }
-        ~LoginPage()
+        private void BasePage_Unloaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            browser.CleanupCommand.CanExecute(null);
-            browser.GetBrowser().Dispose();
-            browser.Dispose();
+            //browser.GetBrowser().Dispose();
+           
         }
+
+        private void Browser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+           //browser.GetFocusedFrame();
+        }   
     }
 }

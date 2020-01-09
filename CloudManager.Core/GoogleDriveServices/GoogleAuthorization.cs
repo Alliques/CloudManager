@@ -1,34 +1,15 @@
 ﻿using System;
-using System.Security.Cryptography;
 using System.Net;
 using System.Threading.Tasks;
-using System.Net.Sockets;
 using System.Text;
-using System.Windows;
 using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace CloudManager.Core
 {
-    public  class GoogleAuthorization
+    public class GoogleAuthorization : GoogleAuthorizationData
     {
-        #region Private fields
-        private const string clientID = "942014504403-hfafq9qk08i8jdbn4310hmd8jfpncuhe.apps.googleusercontent.com";
-        private const string clientSecret = "APLeV7-PL_vNMvXNDqlbxKzB";
-        private const string authorizationEndpoint = "https://accounts.google.com/o/oauth2/v2/auth";
-        const string tokenEndpoint = "https://www.googleapis.com/oauth2/v4/token";
-        const string userInfoEndpoint = "https://www.googleapis.com/oauth2/v3/userinfo";
-        private const string code_challenge_method = "S256";
-
-        private string state;
-        private string code_verifier;
-        private string code_challenge;
-
-        private string redirectURI;
-        #endregion
-
-
         #region Constructor
         public GoogleAuthorization()
         {
@@ -46,7 +27,7 @@ namespace CloudManager.Core
         public string AuthorizationCodeRequestString()
         {
             return string.Format(
-                "{0}?response_type=code&scope=openid%20profile&redirect_uri={1}&client_id={2}&state={3}&code_challenge={4}&code_challenge_method={5}",
+                "{0}?response_type=code&scope=openid%20profile%20email&redirect_uri={1}&client_id={2}&state={3}&code_challenge={4}&code_challenge_method={5}",
                authorizationEndpoint,
                System.Uri.EscapeDataString(redirectURI),
                clientID,
@@ -58,7 +39,6 @@ namespace CloudManager.Core
         public async void Authorization()
         {
             Notify?.Invoke(AuthorizationCodeRequestString());
-            //IoC.Get<ApplicationViewModel>().CurrentAuthAdress = AuthorizationCodeRequestString();
             var http = new HttpListener();
             http.Prefixes.Add(redirectURI);
             //output("Listening..");
@@ -147,6 +127,10 @@ namespace CloudManager.Core
                     Dictionary<string, string> tokenEndpointDecoded = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseText);
 
                     string access_token = tokenEndpointDecoded["access_token"];
+                    string refresh_token = tokenEndpointDecoded["refresh_token"];
+                    OneDriveApi.UserinfoCall(access_token);
+                    //close page when token received
+                    TokenReceivedEvent?.Invoke();
                 }
             }
             catch (WebException ex)
@@ -168,41 +152,15 @@ namespace CloudManager.Core
                 }
             }
         }
+
+        #region Events
         public delegate void UriChanged(string uri);
         public event UriChanged Notify;
-        #region Private methods
-        private string RandomDataBase64url(uint length)
-        {
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            byte[] bytes = new byte[length];
-            rng.GetBytes(bytes);
-            return Base64urlencodeNoPadding(bytes);
-        }
-        private string Base64urlencodeNoPadding(byte[] buffer)
-        {
-            string base64 = Convert.ToBase64String(buffer);
 
-            // Converts base64 to base64url.
-            base64 = base64.Replace("+", "-");
-            base64 = base64.Replace("/", "_");
-            base64 = base64.Replace("=", "");
-
-            return base64;
-        }
-        private int GetRandomUnusedPort()
-        {
-            var listener = new TcpListener(IPAddress.Loopback, 0);
-            listener.Start();
-            var port = ((IPEndPoint)listener.LocalEndpoint).Port;
-            listener.Stop();
-            return port;
-        }
-        private byte[] Sha256(string inputStirng)
-        {
-            byte[] bytes = Encoding.ASCII.GetBytes(inputStirng);
-            SHA256Managed sha256 = new SHA256Managed();
-            return sha256.ComputeHash(bytes);
-        } 
+        public delegate void TokenReceived();
+        public event TokenReceived TokenReceivedEvent; 
         #endregion
+
+       
     }
 }
