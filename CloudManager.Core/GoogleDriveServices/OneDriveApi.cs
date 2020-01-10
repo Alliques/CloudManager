@@ -24,7 +24,7 @@ namespace CloudManager.Core
                 refreshingToken);
         }
 
-        public async static void UserinfoCall(string access_token)
+        public static object UserinfoCall(string access_token)
         {
             // builds the  request
             string userinfoRequestURI = "https://www.googleapis.com/oauth2/v3/userinfo";
@@ -37,13 +37,15 @@ namespace CloudManager.Core
             userinfoRequest.Accept = "Accept=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
 
             // gets the response
-            WebResponse userinfoResponse = await userinfoRequest.GetResponseAsync();
+            WebResponse userinfoResponse = userinfoRequest.GetResponse();
             using (StreamReader userinfoResponseReader = new StreamReader(userinfoResponse.GetResponseStream()))
             {
                 // reads response body
-                userInfo = await userinfoResponseReader.ReadToEndAsync();
+                userInfo = userinfoResponseReader.ReadToEnd();
             }
-            var data = JsonConvert.DeserializeObject();
+            Dictionary<string, string> tokenEndpointDecoded = JsonConvert.DeserializeObject<Dictionary<string, string>>(userInfo);
+            
+            return tokenEndpointDecoded;
         }
     }
 }

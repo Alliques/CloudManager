@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudManager.Core
 {
+    [Serializable]
     public class GoogleUserDataModel
     {
         public string RefreshToken { get; set; }

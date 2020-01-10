@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CloudManager.Core
 {
@@ -9,6 +10,8 @@ namespace CloudManager.Core
         /// </summary>
         /// 
         public object CurrentAuthAdress { get;  set; }
+
+        public List<GoogleUserDataModel> UserDatas { get; set; }
         public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.AddAccountPage;
 
         public void GoToPage(ApplicationPage page)

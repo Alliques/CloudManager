@@ -59,7 +59,6 @@
     <Compile Include="Dictionary.cs" />
     <Compile Include="GoogleDriveServices\AuthorizationData.cs" />
     <Compile Include="GoogleDriveServices\GoogleAuthorization.cs" />
-    <Compile Include="GoogleDriveServices\GoogleUserData.cs" />
     <Compile Include="GoogleDriveServices\OneDriveApi.cs" />
     <Compile Include="IoC\IocContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

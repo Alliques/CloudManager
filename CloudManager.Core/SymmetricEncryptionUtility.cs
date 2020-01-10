@@ -27,41 +27,41 @@ namespace CloudManager.Core
             return Algorithm;
         }
 
-        public static void ReadKey(RSACryptoServiceProvider algorithm, string keyFile)
-        {
-            byte[] KeyBytes;
+        //public static void ReadKey(RSACryptoServiceProvider algorithm, string keyFile)
+        //{
+        //    byte[] KeyBytes;
 
-            using (FileStream fs = new FileStream(keyFile, FileMode.Open))
-            {
-                KeyBytes = new byte[fs.Length];
-                fs.Read(KeyBytes, 0, (int)fs.Length);
-            }
+        //    using (FileStream fs = new FileStream(keyFile, FileMode.Open))
+        //    {
+        //        KeyBytes = new byte[fs.Length];
+        //        fs.Read(KeyBytes, 0, (int)fs.Length);
+        //    }
 
-            KeyBytes = ProtectedData.Unprotect(KeyBytes,
-                    null, DataProtectionScope.LocalMachine);
+        //    KeyBytes = ProtectedData.Unprotect(KeyBytes,
+        //            null, DataProtectionScope.LocalMachine);
 
-            algorithm.FromXmlString(Encoding.UTF8.GetString(KeyBytes));
-        }
+        //    algorithm.FromXmlString(Convert.ToBase64String(KeyBytes));
+        //}
 
-        public static byte[] EncryptData(string data, string publicKey)
-        {
-            // Создать алгоритм на основе открытого ключа
-            RSACryptoServiceProvider Algorithm = new RSACryptoServiceProvider();
-            Algorithm.FromXmlString(publicKey);
+        //public static byte[] EncryptData(string data, string publicKey)
+        //{
+        //    // Создать алгоритм на основе открытого ключа
+        //    RSACryptoServiceProvider Algorithm = new RSACryptoServiceProvider();
+        //    Algorithm.FromXmlString(publicKey);
 
-            // Зашифровать данные
-            return Algorithm.Encrypt(
-                   Encoding.UTF8.GetBytes(data), true);
-        }
+        //    // Зашифровать данные
+        //    return Algorithm.Encrypt(
+        //           Convert.FromBase64String(data), true);
+        //}
 
-        public static string DecryptData(byte[] data, string keyFile)
-        {
-            RSACryptoServiceProvider Algorithm = new RSACryptoServiceProvider();
-            ReadKey(Algorithm, keyFile);
+        //public static string DecryptData(byte[] data, string keyFile)
+        //{
+        //    RSACryptoServiceProvider Algorithm = new RSACryptoServiceProvider();
+        //    ReadKey(Algorithm, keyFile);
 
-            byte[] ClearData = Algorithm.Decrypt(data, true);
-            return Convert.ToString(
-                   Encoding.UTF8.GetString(ClearData));
-        }
+        //    byte[] ClearData = Algorithm.Decrypt(data, true);
+        //    return Convert.ToString(
+        //           Convert.ToBase64String(ClearData));
+        //}
     }
 }

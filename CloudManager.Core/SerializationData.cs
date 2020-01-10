@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CloudManager.Core
 {
@@ -18,28 +14,49 @@ namespace CloudManager.Core
         {
             formatter = new BinaryFormatter();
         }
-        public static void Serialize(Dictionary<GoogleUserDataModel> usersData)
+        public static void Serialize(List<GoogleUserDataModel> usersData)
         {
             SymmetricEncryptionUtility.GenerateKey();
-            using (FileStream fs = new FileStream("Data.dat", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(@"D:\Data.dat", FileMode.OpenOrCreate))
             {
-                using (CryptoStream cs = new CryptoStream(fs, SymmetricEncryptionUtility.GenerateKey().CreateEncryptor(), CryptoStreamMode.Write))
-                {
-                    formatter.Serialize(fs, usersData);
-                }
+                formatter.Serialize(fs, usersData);
+                //using (CryptoStream cs = new CryptoStream(fs, SymmetricEncryptionUtility.GenerateKey().CreateEncryptor(), CryptoStreamMode.Write))
+                //{
+                //    formatter.Serialize(fs, usersData);
+                //}
             }
         }
-        public static Dictionary<GoogleUserDataModel> Deserilize()
+        public static List<GoogleUserDataModel> Deserilize()
         {
-            Dictionary<GoogleUserDataModel> usersData = new Dictionary<GoogleUserDataModel>();
-            using (FileStream fs = new FileStream("Data.dat", FileMode.OpenOrCreate))
+            List<GoogleUserDataModel> usersData = new List<GoogleUserDataModel>();
+            using (FileStream fs = new FileStream(@"D:\Data.dat", FileMode.OpenOrCreate))
             {
-                using (CryptoStream cs = new CryptoStream(fs, SymmetricEncryptionUtility.GenerateKey().CreateDecryptor(), CryptoStreamMode.Read))
-                {
-                    usersData = (Dictionary<GoogleUserDataModel>)formatter.Deserialize(fs);
-                }
+                usersData = (List<GoogleUserDataModel>)formatter.Deserialize(fs);
+                //using (CryptoStream cs = new CryptoStream(fs, SymmetricEncryptionUtility.GenerateKey().CreateDecryptor(), CryptoStreamMode.Read))
+                //{
+                //    try
+                //    {
+                //        usersData = (List<GoogleUserDataModel>)formatter.Deserialize(fs);
+                //    }
+                //    catch(Exception e)
+                //    {
+
+                //    }
+                //}
             }
             return usersData;
+        }
+
+        public static List<GoogleUserDataModel> VeryfyExistFile()
+        {
+            if (System.IO.File.Exists(@"D:\Data.dat"))
+            {
+                return Deserilize();
+            }
+            else
+            {
+                return new List<GoogleUserDataModel>();
+            }
         }
     }
 }

@@ -127,8 +127,26 @@ namespace CloudManager.Core
                     Dictionary<string, string> tokenEndpointDecoded = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseText);
 
                     string access_token = tokenEndpointDecoded["access_token"];
-                    string refresh_token = tokenEndpointDecoded["refresh_token"];
-                    OneDriveApi.UserinfoCall(access_token);
+                    var userInfo = OneDriveApi.UserinfoCall(access_token) as Dictionary<string,string>;
+
+                   
+                    var usersData= SerializationData.VeryfyExistFile();
+                    var b = usersData.Exists(x => x.Email != userInfo["email"]);
+
+                    //if account already exist
+                    if (!usersData.Exists(x=>x.Email==userInfo["email"]))
+                    {
+                        usersData.Add(new GoogleUserDataModel
+                        {
+                            AccessToken = access_token,
+                            RefreshToken = tokenEndpointDecoded["refresh_token"],
+                            Email = userInfo["email"],
+                            PhotoUrl = userInfo["picture"]
+                        });
+                        SerializationData.Serialize(usersData);
+                    }
+
+                    IoC.Get<ApplicationViewModel>().UserDatas = usersData;
                     //close page when token received
                     TokenReceivedEvent?.Invoke();
                 }
