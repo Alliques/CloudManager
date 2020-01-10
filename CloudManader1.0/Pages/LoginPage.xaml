@@ -19,10 +19,10 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Command="{Binding ClosePage}" />
-        <cef:ChromiumWebBrowser
+        <!--<cef:ChromiumWebBrowser
             x:Name="browser"
             Grid.Row="1"
             Address="{Binding Uri}"
-            FrameLoadEnd="Browser_FrameLoadEnd" />
+            FrameLoadEnd="Browser_FrameLoadEnd" />-->
     </Grid>
 </local:BasePage>

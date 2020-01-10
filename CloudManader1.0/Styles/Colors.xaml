@@ -28,4 +28,7 @@
 
     <Color x:Key="PinkElementColor">#E80D49</Color>
     <SolidColorBrush x:Key="PinkElementBrush" Color="{StaticResource PinkElementColor}" />
+
+    <Color x:Key="RegularFontsColor">#969696</Color>
+    <SolidColorBrush x:Key="RegularFontsBrush" Color="{StaticResource RegularFontsColor}" />
 </ResourceDictionary>

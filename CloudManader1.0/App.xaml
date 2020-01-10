@@ -111,8 +111,7 @@
                                 Background="{TemplateBinding Background}"
                                 SnapsToDevicePixels="true">
                                 <ContentPresenter
-                                    Margin="{TemplateBinding Padding}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    HorizontalAlignment="Stretch"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                     RecognizesAccessKey="True"
                                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />

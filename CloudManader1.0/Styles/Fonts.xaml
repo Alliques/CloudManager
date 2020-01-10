@@ -18,4 +18,12 @@
     <Style BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type TextBox}" />
     <Style BasedOn="{StaticResource BaseTextBlockStyle}" TargetType="{x:Type TextBlock}" />
     <Style BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type ListView}" />
+
+    <Style
+        x:Key="RegularLightFont"
+        BasedOn="{StaticResource BaseTextBlockStyle}"
+        TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource RegularFontsBrush}" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
 </ResourceDictionary>

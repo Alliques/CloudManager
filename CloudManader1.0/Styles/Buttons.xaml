@@ -92,8 +92,8 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Padding" Value="1" />
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="Template">
@@ -101,6 +101,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid
                         x:Name="Chrome"
+                        HorizontalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
                         SnapsToDevicePixels="true">
                         <ContentPresenter
