@@ -49,6 +49,7 @@ namespace CloudManager.Core
             var buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
             response.ContentLength64 = buffer.Length;
             var responseOutput = response.OutputStream;
+
             Task responseTask = responseOutput.WriteAsync(buffer, 0, buffer.Length).ContinueWith((task) =>
             {
                 responseOutput.Close();
@@ -76,7 +77,7 @@ namespace CloudManager.Core
             }
             //output("Authorization code: " + code);
 
-            PerformCodeExchange(code, code_verifier, redirectURI);
+            Authorization(code, code_verifier, redirectURI);
         }
 
 
@@ -92,7 +93,7 @@ namespace CloudManager.Core
         /// <param name="code">Authorization code</param>
         /// <param name="code_verifier"></param>
         /// <param name="redirectURI"></param>
-        async void PerformCodeExchange(string code, string code_verifier, string redirectURI)
+        async void Authorization(string code, string code_verifier, string redirectURI)
         {
             string tokenRequestURI = "https://www.googleapis.com/oauth2/v4/token";
             string tokenRequestBody = string.Format("code={0}&redirect_uri={1}&client_id={2}&code_verifier={3}&client_secret={4}&scope=&grant_type=authorization_code",

@@ -12,8 +12,6 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AE9B2C7F-DDEA-4B95-911D-E061737E059C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CloudManader1._0</RootNamespace>
-    <AssemblyName>CloudManader1.0</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -121,15 +119,21 @@
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
     <Compile Include="AttachedProperties\NoFrameHistory.cs" />
+    <Compile Include="Controls\CustomizableListView.cs" />
+    <Compile Include="Controls\CustomizableListViewItem.cs" />
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RoundedButton.cs" />
     <Compile Include="Pages\AddAccountPage.xaml.cs">
       <DependentUpon>AddAccountPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Base\BasePage.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WorkPage.xaml.cs">
+      <DependentUpon>WorkPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Styles\CustomizableButton.cs" />
     <Compile Include="ValueConverters\IoCConverter.cs" />
@@ -162,6 +166,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\WorkPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Texts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Templates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

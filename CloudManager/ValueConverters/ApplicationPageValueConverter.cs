@@ -15,6 +15,8 @@ namespace CloudManager
                     return new LoginPage();
                 case ApplicationPage.AddAccountPage:
                     return new AddAccountPage();
+                case ApplicationPage.WorkPage:
+                    return new WorkViewModel();
                 default:
                     Debugger.Break();
                     return null;

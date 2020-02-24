@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CloudManager.Styles">
+
+    <Path
+        x:Key="AddButtonIcon"
+        Stretch="Fill"
+        Stroke="{StaticResource MainIconColorBrush}"
+        StrokeEndLineCap="Square"
+        StrokeStartLineCap="Square"
+        StrokeThickness="1.8">
+        <Path.Data>
+            <PathGeometry>
+                <PathFigure IsClosed="False" StartPoint="0,5">
+                    <LineSegment Point="10,5" />
+                </PathFigure>
+                <PathFigure IsClosed="False" StartPoint="5,0">
+                    <LineSegment Point="5,10" />
+                </PathFigure>
+            </PathGeometry>
+        </Path.Data>
+    </Path>
+</ResourceDictionary>
