@@ -1,5 +1,6 @@
 ﻿using CloudManager.Core;
 using Fasetto.Word;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 
@@ -94,7 +95,7 @@ namespace CloudManager
 
 
         #endregion
-
+        public List<string> MyProperty { get; set; }
         #region Constructor
 
         /// <summary>
@@ -102,6 +103,7 @@ namespace CloudManager
         /// </summary>
         public WindowViewModel(Window window)
         {
+            MyProperty = new List<string> { "qwe", "qweqw", "dfs" };
             mWindow = window;
             CloseMenuButtonVisibility = Visibility.Collapsed;
             mWindow.StateChanged += (sender, e) => 

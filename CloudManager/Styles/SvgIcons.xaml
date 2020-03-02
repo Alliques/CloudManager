@@ -9,7 +9,7 @@
         Stroke="{StaticResource MainIconColorBrush}"
         StrokeEndLineCap="Square"
         StrokeStartLineCap="Square"
-        StrokeThickness="1.8">
+        StrokeThickness="2.5">
         <Path.Data>
             <PathGeometry>
                 <PathFigure IsClosed="False" StartPoint="0,5">

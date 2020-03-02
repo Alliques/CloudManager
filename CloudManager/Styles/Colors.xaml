@@ -22,6 +22,20 @@
 
     <Color x:Key="NoSelectedDrive">#FAFAFA</Color>
     <SolidColorBrush x:Key="NoSelectedDriveBrush" Color="{StaticResource NoSelectedDrive}" />
-    
-    
+
+    <Color x:Key="SearchIconColor">#4e4e4e</Color>
+    <SolidColorBrush x:Key="SearchIconColorBrush" Color="{StaticResource SearchIconColor}" />
+
+    <Color x:Key="PlaceholderColor">#B5B5B5</Color>
+    <SolidColorBrush x:Key="PlaceholderColorBrush" Color="{StaticResource PlaceholderColor}" />
+
+    <Color x:Key="ShadowColor">#E1E1E1</Color>
+    <SolidColorBrush x:Key="ShadowColorBrush" Color="{StaticResource ShadowColor}" />
+
+    <Color x:Key="TitleColor">#2d2d2d</Color>
+    <SolidColorBrush x:Key="TitleColorBrush" Color="{StaticResource TitleColor}" />
+
+    <Color x:Key="DescriptionColor">#b9b9b9</Color>
+    <SolidColorBrush x:Key="DescriptionColorBrush" Color="{StaticResource DescriptionColor}" />
+
 </ResourceDictionary>
