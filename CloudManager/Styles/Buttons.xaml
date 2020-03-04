@@ -100,7 +100,7 @@
                 RecognizesAccessKey="True"
                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
         </Border>
-        <ControlTemplate.Triggers>
+        <!--<ControlTemplate.Triggers>
             <Trigger Property="Button.IsDefaulted" Value="True">
                 <Setter TargetName="border" Property="BorderBrush" Value="transparent" />
             </Trigger>
@@ -121,7 +121,7 @@
                 <Setter TargetName="border" Property="BorderBrush" Value="transparent" />
                 <Setter Property="Foreground" Value="transparent" />
             </Trigger>
-        </ControlTemplate.Triggers>
+        </ControlTemplate.Triggers>-->
     </ControlTemplate>
 
 </ResourceDictionary>

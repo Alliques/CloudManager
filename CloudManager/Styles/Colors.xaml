@@ -9,7 +9,7 @@
     <SolidColorBrush x:Key="DiskListBackgroundBrush" Color="{StaticResource DiskListBackground}" />
 
     <Color x:Key="SelectedButtonBorderColor">#CDCDE3</Color>
-    <SolidColorBrush x:Key="SelectedButtonBorderColorBrush" Color="{StaticResource SelectedButtonBorderColor}" />
+    <SolidColorBrush x:Key="RegularBorderColor" Color="{StaticResource SelectedButtonBorderColor}" />
 
     <Color x:Key="AddButtonColor">#D5D5E3</Color>
     <SolidColorBrush x:Key="AddButtonColorBrush" Color="{StaticResource AddButtonColor}" />
@@ -38,4 +38,18 @@
     <Color x:Key="DescriptionColor">#b9b9b9</Color>
     <SolidColorBrush x:Key="DescriptionColorBrush" Color="{StaticResource DescriptionColor}" />
 
+    <Color x:Key="SelectedDriveBgColor">#5E56E8</Color>
+    <SolidColorBrush x:Key="SelectedDriveBgColorBrush" Color="{StaticResource SelectedDriveBgColor}" />
+
+    <Color x:Key="SelectedDriveTextColor">#E4E5F4</Color>
+    <SolidColorBrush x:Key="SelectedDriveTextColorBrush" Color="{StaticResource SelectedDriveTextColor}" />
+
+    <Color x:Key="SelectedDriveDescrcontainerColor">#4943B3</Color>
+    <SolidColorBrush x:Key="SelectedDriveDescrcontainerColorBrush" Color="{StaticResource SelectedDriveDescrcontainerColor}" />
+
+    <Color x:Key="SelectedDriveUploadColor">#6C67C1</Color>
+    <SolidColorBrush x:Key="SelectedDriveUploadColorBrush" Color="{StaticResource SelectedDriveUploadColor}" />
+
+    <Color x:Key="SelectedFileBgColor">#DFE0E9</Color>
+    <SolidColorBrush x:Key="SelectedFileBgColorBrush" Color="{StaticResource SelectedFileBgColor}" /> 
 </ResourceDictionary>

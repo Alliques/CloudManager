@@ -119,8 +119,7 @@
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
     <Compile Include="AttachedProperties\NoFrameHistory.cs" />
-    <Compile Include="Controls\CustomizableListView.cs" />
-    <Compile Include="Controls\CustomizableListViewItem.cs" />
+    <Compile Include="Controls\CustomizableProgressBar.cs" />
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>

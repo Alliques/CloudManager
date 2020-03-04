@@ -1,9 +1,9 @@
 ﻿using CloudManager.Core;
 using Fasetto.Word;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
-
 namespace CloudManager
 {
     /// <summary>
@@ -11,6 +11,12 @@ namespace CloudManager
     /// </summary>
     public class WindowViewModel : BaseViewModel
     {
+
+
+        public object ItemContainerStyle { get; set; }
+
+        public object FileListStyle { get; set; }
+
         #region Private 
 
         /// <summary>
@@ -103,7 +109,9 @@ namespace CloudManager
         /// </summary>
         public WindowViewModel(Window window)
         {
-            MyProperty = new List<string> { "qwe", "qweqw", "dfs" };
+            ItemContainerStyle = Application.Current.FindResource("RowFilesListStyle") as Style;
+
+            MyProperty = new List<string> { "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs" };
             mWindow = window;
             CloseMenuButtonVisibility = Visibility.Collapsed;
             mWindow.StateChanged += (sender, e) => 
@@ -123,6 +131,7 @@ namespace CloudManager
             CloseMenuButtonCommand = new RelayCommand(() => CloseMenu());
             OpenNewAccountPageCommand = new RelayCommand(() => OpenPageNewAccountAdded());
             OpenWorkPageCommand = new RelayCommand(()=> OprenWorkPage());
+            ChangeFileListPresentationCommand = new RelayCommand(() => ChangeFileListPresentation());
             var resizer = new WindowResizer(mWindow);
         }
 
@@ -157,9 +166,30 @@ namespace CloudManager
         {
             IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.WorkPage);
         }
+
+        private void ChangeFileListPresentation()
+        {
+            Style tileFilesListStyle = Application.Current.FindResource("TileFilesListStyle") as Style;
+            Style rowFilesListStyle = Application.Current.FindResource("RowFilesListStyle") as Style;
+            Style fileListStyle = Application.Current.FindResource("TileListStyle") as Style;
+
+            ItemContainerStyle = ItemContainerStyle == null ? rowFilesListStyle : ItemContainerStyle;
+
+            if (ItemContainerStyle == null || ItemContainerStyle == tileFilesListStyle)
+            {
+                ItemContainerStyle = rowFilesListStyle;
+                FileListStyle = null;
+            }
+            else
+            {
+                ItemContainerStyle = tileFilesListStyle;
+                FileListStyle = fileListStyle;
+            }
+
+        }
         #endregion
 
-        
+
 
         #region Commands
 
@@ -194,6 +224,8 @@ namespace CloudManager
         public ICommand OpenNewAccountPageCommand { get; set; }
 
         public ICommand OpenWorkPageCommand { get; set; }
+
+        public ICommand ChangeFileListPresentationCommand { get; set; }
         #endregion
 
 

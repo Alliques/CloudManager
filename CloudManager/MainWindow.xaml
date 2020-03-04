@@ -52,35 +52,51 @@
                                             <controls:RoundedButton
                                                 Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
                                                 Margin="3"
-                                                Background="red"
                                                 BorderThickness="0"
                                                 Command="{Binding MinimizeWindowCommand}"
                                                 CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualWidth, Converter={StaticResource HalfSizeConverter}}"
                                                 Template="{DynamicResource RoundedButtonTemplate}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
-                                                <TextBlock Style="{StaticResource IconsDarkStyle}" Text="&#xf068;" />
+                                                <!--<TextBlock Style="{StaticResource IconsDarkStyle}" Text="&#xf068;" />-->
+                                                <controls:RoundedButton.Background>
+                                                    <RadialGradientBrush GradientOrigin="0.65,0.3">
+                                                        <GradientStop Offset="1" Color="#FF1A9100" />
+                                                        <GradientStop Offset="0.004" Color="#FFC2FFB5" />
+                                                    </RadialGradientBrush>
+                                                </controls:RoundedButton.Background>
                                             </controls:RoundedButton>
                                             <controls:RoundedButton
                                                 Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
                                                 Margin="3"
-                                                Background="Yellow"
                                                 BorderThickness="0"
                                                 Command="{Binding MaximizeWindowCommand}"
                                                 CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualWidth, Converter={StaticResource HalfSizeConverter}}"
                                                 Template="{DynamicResource RoundedButtonTemplate}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
-                                                <TextBlock Style="{StaticResource IconsDarkStyle}" Text="&#xf065;" />
+                                                <!--<TextBlock Style="{StaticResource IconsDarkStyle}" Text="&#xf065;" />-->
+                                                <controls:RoundedButton.Background>
+                                                    <RadialGradientBrush GradientOrigin="0.65,0.3">
+                                                        <GradientStop Offset="1" Color="#FFD6B900" />
+                                                        <GradientStop Offset="0.004" Color="#FFFFF5B5" />
+                                                    </RadialGradientBrush>
+                                                </controls:RoundedButton.Background>
                                             </controls:RoundedButton>
                                             <controls:RoundedButton
                                                 Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
                                                 Margin="3"
-                                                Background="Green"
                                                 BorderThickness="0"
                                                 Command="{Binding CloseWindowCommand}"
                                                 CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualWidth, Converter={StaticResource HalfSizeConverter}}"
                                                 Template="{DynamicResource RoundedButtonTemplate}"
                                                 WindowChrome.IsHitTestVisibleInChrome="True">
-                                                <TextBlock Style="{StaticResource IconsDarkStyle}" Text="&#xf00d;" />
+                                                <controls:RoundedButton.Background>
+                                                    <RadialGradientBrush GradientOrigin="0.65,0.3">
+                                                        <GradientStop Offset="1" Color="#FFAC0000" />
+                                                        <GradientStop Offset="0" Color="#FFFFB5B5" />
+                                                    </RadialGradientBrush>
+                                                </controls:RoundedButton.Background>
+                                                <!--<TextBlock Style="{StaticResource IconsDarkStyle}" Text="&#xf00d;" />-->
+
                                             </controls:RoundedButton>
                                         </StackPanel>
                                     </Grid>
@@ -99,7 +115,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220" />
             <ColumnDefinition />
-            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="290" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -111,7 +127,7 @@
             <TextBox
                 Height="30"
                 Margin="20,5"
-                BorderBrush="{StaticResource SelectedButtonBorderColorBrush}"
+                BorderBrush="{StaticResource RegularBorderColor}"
                 Style="{StaticResource SearchTextBox}"
                 Tag="Search" />
         </Grid>
@@ -128,124 +144,37 @@
                         HorizontalContentAlignment="Stretch"
                         Background="Transparent"
                         BorderThickness="0"
+                        ItemContainerStyle="{StaticResource DriveListContainerStyle}"
                         ItemsSource="{Binding MyProperty}"
                         ScrollViewer.CanContentScroll="False"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                        VirtualizingPanel.ScrollUnit="Pixel">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Border
-                                    Height="110"
-                                    Margin="8,10,8,0"
-                                    Background="{StaticResource NoSelectedDriveBrush}"
-                                    CornerRadius="10">
-                                    <Grid Margin="10" VerticalAlignment="Stretch">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                        </Grid.RowDefinitions>
-                                        <Grid Grid.Row="0" Margin="0,0,0,0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=ActualHeight}" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Border
-                                                Grid.Column="0"
-                                                BorderBrush="{StaticResource SelectedButtonBorderColorBrush}"
-                                                BorderThickness="1"
-                                                CornerRadius="11" />
-                                            <Grid Grid.Column="1" Margin="5,0,0,5">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*" />
-                                                    <RowDefinition Height="auto" />
-                                                    <RowDefinition Height="auto" />
-                                                </Grid.RowDefinitions>
-                                                <TextBlock
-                                                    Grid.Row="0"
-                                                    FontSize="9"
-                                                    Text="Google drive" />
-                                                <TextBlock
-                                                    Grid.Row="1"
-                                                    Margin="0,0,0,2"
-                                                    FontSize="9"
-                                                    Text="1233" />
-                                                <TextBlock
-                                                    Grid.Row="1"
-                                                    HorizontalAlignment="Right"
-                                                    FontSize="9"
-                                                    Text="1233" />
-                                                <ProgressBar
-                                                    Grid.Row="2"
-                                                    Grid.Column="1"
-                                                    VerticalAlignment="Bottom" />
-                                            </Grid>
-                                        </Grid>
-                                        <Border
-                                            Grid.Row="1"
-                                            Margin="0,10,0,0"
-                                            BorderBrush="{StaticResource SelectedButtonBorderColorBrush}"
-                                            BorderThickness="1"
-                                            CornerRadius="18,16,16,18">
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=ActualHeight}" />
-                                                    <ColumnDefinition />
-                                                    <ColumnDefinition />
-                                                </Grid.ColumnDefinitions>
-                                                <Border
-                                                    Margin="-1"
-                                                    Background="{StaticResource NoSelectedDriveBrush}"
-                                                    BorderBrush="{StaticResource SelectedButtonBorderColorBrush}"
-                                                    BorderThickness="1"
-                                                    CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ActualHeight}">
-                                                    <Image />
-                                                </Border>
-                                                <StackPanel
-                                                    Grid.Column="1"
-                                                    Margin="5,0,0,0"
-                                                    VerticalAlignment="Center">
-                                                    <TextBlock FontSize="8" Text="Picture" />
-                                                    <TextBlock FontSize="8" Text="125.5" />
-                                                </StackPanel>
-                                                <Border
-                                                    Grid.Column="2"
-                                                    Margin="3"
-                                                    Background="{StaticResource NoSelectedDriveBrush}"
-                                                    BorderBrush="{StaticResource SelectedButtonBorderColorBrush}"
-                                                    BorderThickness="1"
-                                                    CornerRadius="14">
-                                                    <TextBlock
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        FontSize="9"
-                                                        Text="Upload" />
-                                                </Border>
-                                            </Grid>
-                                        </Border>
-                                    </Grid>
-                                    <Border.Effect>
-                                        <DropShadowEffect
-                                            Direction="-80"
-                                            ShadowDepth="2"
-                                            Color="LightGray" />
-                                    </Border.Effect>
-                                </Border>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                        VirtualizingPanel.ScrollUnit="Pixel" />
                     <controls:RoundedButton
                         Height="40"
                         Margin="10"
                         VerticalAlignment="Bottom"
                         Background="{StaticResource AddButtonColorBrush}"
-                        BorderBrush="{StaticResource SelectedButtonBorderColorBrush}"
+                        BorderBrush="{StaticResource RegularBorderColor}"
                         BorderThickness="1"
                         CornerRadius="10"
                         Template="{DynamicResource RoundedButtonTemplate}">
-                        <TextBlock Style="{StaticResource IconsPurpleStyle}" Text="&#xf067;" />
+                        <TextBlock Style="{StaticResource IconsPurple}" Text="&#xf067;" />
                     </controls:RoundedButton>
                 </Grid>
             </Border>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <controls:RoundedButton
+                Width="26"
+                Height="26"
+                Background="{StaticResource AddButtonColorBrush}"
+                BorderThickness="0"
+                Command="{Binding ChangeFileListPresentationCommand}"
+                CornerRadius="13"
+                Template="{DynamicResource RoundedButtonTemplate}">
+                <TextBlock Style="{StaticResource IconsPurple}" Text="&#xf0c9;" />
+            </controls:RoundedButton>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1">
@@ -254,55 +183,11 @@
                 HorizontalContentAlignment="Stretch"
                 Background="Transparent"
                 BorderThickness="0"
+                ItemContainerStyle="{Binding ItemContainerStyle, Mode=TwoWay}"
                 ItemsSource="{Binding MyProperty}"
-                VirtualizingPanel.ScrollUnit="Pixel">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border
-                            Height="40"
-                            Margin="0,0,0,8"
-                            BorderBrush="{StaticResource SelectedButtonBorderColorBrush}"
-                            BorderThickness="1"
-                            CornerRadius="8">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
-                                <Image
-                                    Grid.Column="0"
-                                    Margin="10,10"
-                                    Source="/Resources/images/mainWindowImades/cancel-music.png" />
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Style="{StaticResource Title}" Text="Download" />
-                                    <TextBlock Style="{StaticResource Description}" Text="Text" />
-                                </StackPanel>
-                                <controls:RoundedButton
-                                    Grid.Column="2"
-                                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=ActualHeight, Converter={StaticResource HalfSizeConverter}}"
-                                    Height="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualWidth}"
-                                    Margin="0,0,10,0"
-                                    VerticalAlignment="Center"
-                                    VerticalContentAlignment="Center"
-                                    Background="{StaticResource AddButtonColorBrush}"
-                                    BorderBrush="{StaticResource SelectedButtonBorderColorBrush}"
-                                    BorderThickness="1"
-                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
-                                    Template="{DynamicResource RoundedButtonTemplate}">
-                                    <TextBlock
-                                        Margin="0,1,0,0"
-                                        Style="{StaticResource IconsPurpleStyle}"
-                                        Text="&#xf141;"
-                                        TextAlignment="Center" />
-                                </controls:RoundedButton>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-
-
-            </ListBox>
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                Style="{Binding FileListStyle, Mode=TwoWay}"
+                VirtualizingPanel.ScrollUnit="Pixel" />
         </Grid>
     </Grid>
 </Window>
