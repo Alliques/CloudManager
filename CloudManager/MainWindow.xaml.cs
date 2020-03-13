@@ -26,5 +26,6 @@ namespace CloudManager
             InitializeComponent();
             this.DataContext = new WindowViewModel(this);
         }
+
     }
 }

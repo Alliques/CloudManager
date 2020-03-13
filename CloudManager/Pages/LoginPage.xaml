@@ -14,15 +14,49 @@
     Unloaded="BasePage_Unloaded"
     mc:Ignorable="d">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0" Command="{Binding ClosePage}" />
-        <!--<cef:ChromiumWebBrowser
-            x:Name="browser"
-            Grid.Row="1"
-            Address="{Binding Uri}"
-            FrameLoadEnd="Browser_FrameLoadEnd" />-->
+        <Grid
+            Width="600"
+            Height="100"
+            Margin="100,100,100,100">
+            <Border
+                Background="LightGray"
+                BorderBrush="DarkGray"
+                BorderThickness="1"
+                ClipToBounds="True">
+                <Border
+                    Margin="-2"
+                    Background="Transparent"
+                    BorderBrush="Black"
+                    BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="0" />
+                    </Border.Effect>
+
+                    <TextBlock
+                        x:Name="lblTitle"
+                        Margin="5"
+                        FontFamily="Arial Bold"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="#FFFFFFFF"
+                        Text="Tournament: $3 + $0.30 KO Sit and Go"
+                        TextAlignment="Left"
+                        TextOptions.TextFormattingMode="Display"
+                        TextWrapping="Wrap">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                Direction="-90"
+                                Opacity="50"
+                                RenderingBias="Quality"
+                                ShadowDepth="2"
+                                Color="Black" />
+
+                        </TextBlock.Effect>
+
+                    </TextBlock>
+                </Border>
+            </Border>
+
+        </Grid>
     </Grid>
 </local:BasePage>

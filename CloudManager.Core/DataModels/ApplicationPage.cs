@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace CloudManager.Core
 {
-    /// <summary>
-    /// current page of the application
-    /// </summary>
     public enum ApplicationPage
     {
         /// <summary>

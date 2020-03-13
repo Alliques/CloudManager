@@ -1,5 +1,5 @@
 ﻿using CloudManager;
-namespace CloudManader
+namespace CloudManager
 {
     /// <summary>
     /// Interaction logic for WorkPage.xaml

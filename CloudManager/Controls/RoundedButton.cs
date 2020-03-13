@@ -3,7 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace  CloudManader.Controls
+namespace  CloudManager.Controls
 {
     public class RoundedButton : Button
     {

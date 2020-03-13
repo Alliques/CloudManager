@@ -119,11 +119,14 @@
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
     <Compile Include="AttachedProperties\NoFrameHistory.cs" />
-    <Compile Include="Controls\CustomizableProgressBar.cs" />
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RoundedButton.cs" />
+    <Compile Include="Controls\SwitchButton.cs" />
+    <Compile Include="Controls\SwitchControl.xaml.cs">
+      <DependentUpon>SwitchControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddAccountPage.xaml.cs">
       <DependentUpon>AddAccountPage.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Window\WindowResizer.cs" />
     <Page Include="Controls\PageHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SwitchControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

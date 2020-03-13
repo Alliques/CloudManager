@@ -8,11 +8,9 @@ namespace CloudManager.Core
         
         public ApplicationViewModel()
         {
-            UserDatas = SerializationData.Deserilize();
         }
         public object CurrentAuthAdress { get;  set; }
 
-        public List<GoogleUserDataModel> UserDatas { get; set; }
 
         /// <summary>
         /// The current page of the application

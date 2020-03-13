@@ -11,13 +11,18 @@ namespace CloudManager
     /// </summary>
     public class WindowViewModel : BaseViewModel
     {
-
+        public List<string> MyProperty { get; set; }
 
         public object ItemContainerStyle { get; set; }
 
         public object FileListStyle { get; set; }
 
         #region Private 
+
+        /// <summary>
+        /// the file list present style switcher
+        /// </summary>
+        private bool filePesentFlag;
 
         /// <summary>
         /// the window this view model controls
@@ -36,6 +41,15 @@ namespace CloudManager
         #endregion
 
         #region Public properties
+        public bool FilePesentFlag
+        {
+            get { return filePesentFlag; }
+            set 
+            {
+                filePesentFlag = value;
+                ChangeFileListPresentation();
+            }
+        }
         /// <summary>
         /// open menu button visiblity
         /// </summary>
@@ -101,7 +115,6 @@ namespace CloudManager
 
 
         #endregion
-        public List<string> MyProperty { get; set; }
         #region Constructor
 
         /// <summary>
@@ -112,6 +125,8 @@ namespace CloudManager
             ItemContainerStyle = Application.Current.FindResource("RowFilesListStyle") as Style;
 
             MyProperty = new List<string> { "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs" };
+
+
             mWindow = window;
             CloseMenuButtonVisibility = Visibility.Collapsed;
             mWindow.StateChanged += (sender, e) => 
@@ -175,7 +190,7 @@ namespace CloudManager
 
             ItemContainerStyle = ItemContainerStyle == null ? rowFilesListStyle : ItemContainerStyle;
 
-            if (ItemContainerStyle == null || ItemContainerStyle == tileFilesListStyle)
+            if (FilePesentFlag!=true | ItemContainerStyle == null || ItemContainerStyle == tileFilesListStyle)
             {
                 ItemContainerStyle = rowFilesListStyle;
                 FileListStyle = null;
@@ -188,7 +203,6 @@ namespace CloudManager
 
         }
         #endregion
-
 
 
         #region Commands
@@ -226,6 +240,7 @@ namespace CloudManager
         public ICommand OpenWorkPageCommand { get; set; }
 
         public ICommand ChangeFileListPresentationCommand { get; set; }
+
         #endregion
 
 
