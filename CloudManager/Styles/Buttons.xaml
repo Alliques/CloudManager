@@ -96,14 +96,14 @@
                         <Border
                             Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight, Converter={StaticResource HalfSizeConverter}, ConverterParameter=*}"
                             Background="{StaticResource AddButtonColorBrush}"
-                            BorderBrush="{StaticResource RegularBorderColor}"
+                            BorderBrush="{StaticResource RegularBorderColorBrush}"
                             BorderThickness="1"
                             CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight, Converter={StaticResource halfSizeConverter}}" />
                         <Border
                             x:Name="border"
                             Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight, Converter={StaticResource HalfSizeConverter}, ConverterParameter=*}"
                             Background="{StaticResource AddButtonColorBrush}"
-                            BorderBrush="{StaticResource RegularBorderColor}"
+                            BorderBrush="{StaticResource RegularBorderColorBrush}"
                             BorderThickness="1"
                             CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight, Converter={StaticResource halfSizeConverter}}">
                             <Grid>

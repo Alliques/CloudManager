@@ -70,11 +70,15 @@ namespace CloudManager
 
             if ( ellipseBtn.Margin.Left<=2)
             {
+                tileIcon.Fill = (Brush)FindResource("CommonBackgroundColorBrush");
+                rowIcon.Fill = (Brush)FindResource("DriveListSelectedItemColorBrush");
                 IsChecked = true;
                 OnAnimation();
             }
             else
             {
+                tileIcon.Fill = (Brush)FindResource("DriveListSelectedItemColorBrush");
+                rowIcon.Fill = (Brush)FindResource("CommonBackgroundColorBrush");
                 IsChecked = false;
                 OffAnimation();
             }

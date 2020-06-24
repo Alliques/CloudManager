@@ -13,7 +13,7 @@ namespace CloudManager
         public LoginPage()
         {
             InitializeComponent();
-            var settings = new BrowserSettings();
+            
         }
         private void BasePage_Unloaded(object sender, System.Windows.RoutedEventArgs e)
         {

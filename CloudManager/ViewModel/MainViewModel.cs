@@ -1,7 +1,6 @@
 ﻿using CloudManager.Core;
 using Fasetto.Word;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 namespace CloudManager
@@ -11,14 +10,12 @@ namespace CloudManager
     /// </summary>
     public class WindowViewModel : BaseViewModel
     {
-        public List<string> MyProperty { get; set; }
-
-        public object ItemContainerStyle { get; set; }
-
-        public object FileListStyle { get; set; }
-
         #region Private 
 
+        /// <summary>
+        /// Application current theme
+        /// </summary>
+        private ResourceDictionary currentTheme;
         /// <summary>
         /// the file list present style switcher
         /// </summary>
@@ -41,15 +38,7 @@ namespace CloudManager
         #endregion
 
         #region Public properties
-        public bool FilePesentFlag
-        {
-            get { return filePesentFlag; }
-            set 
-            {
-                filePesentFlag = value;
-                ChangeFileListPresentation();
-            }
-        }
+     
         /// <summary>
         /// open menu button visiblity
         /// </summary>
@@ -115,25 +104,27 @@ namespace CloudManager
 
 
         #endregion
-        #region Constructor
+
 
         /// <summary>
-        /// Defoult constructor
+        /// Initializes a new instance of the <see cref="WindowViewModel"/> class.
+        /// Defoult constructor.
         /// </summary>
         public WindowViewModel(Window window)
         {
-            ItemContainerStyle = Application.Current.FindResource("RowFilesListStyle") as Style;
 
-            MyProperty = new List<string> { "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs" };
+            //currentTheme = new ResourceDictionary();
+            //currentTheme.Source = new Uri("Styles/DarkTheme/Colors.xaml", UriKind.Relative);
 
+           // Application.Current.Resources.MergedDictionaries.Add(currentTheme);
 
             mWindow = window;
             CloseMenuButtonVisibility = Visibility.Collapsed;
             mWindow.StateChanged += (sender, e) => 
             {
-                OnPropertyChanged(nameof(ResizeBorderThikness));
-                OnPropertyChanged(nameof(OuterMarginSize));
-                OnPropertyChanged(nameof(OuterMarginSizeThikness));
+                this.OnPropertyChanged(nameof(ResizeBorderThikness));
+                this.OnPropertyChanged(nameof(OuterMarginSize));
+                this.OnPropertyChanged(nameof(OuterMarginSizeThikness));
                 OnPropertyChanged(nameof(WindowRadius));
                 OnPropertyChanged(nameof(WindowCornerRadius));
             };
@@ -146,14 +137,11 @@ namespace CloudManager
             CloseMenuButtonCommand = new RelayCommand(() => CloseMenu());
             OpenNewAccountPageCommand = new RelayCommand(() => OpenPageNewAccountAdded());
             OpenWorkPageCommand = new RelayCommand(()=> OprenWorkPage());
-            ChangeFileListPresentationCommand = new RelayCommand(() => ChangeFileListPresentation());
             var resizer = new WindowResizer(mWindow);
         }
 
-        #endregion
-
         #region Methods
-       
+
         /// <summary>
         /// Hide close menu button when menu is closed
         /// </summary>
@@ -182,28 +170,7 @@ namespace CloudManager
             IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.WorkPage);
         }
 
-        private void ChangeFileListPresentation()
-        {
-            Style tileFilesListStyle = Application.Current.FindResource("TileFilesListStyle") as Style;
-            Style rowFilesListStyle = Application.Current.FindResource("RowFilesListStyle") as Style;
-            Style fileListStyle = Application.Current.FindResource("TileListStyle") as Style;
-
-            ItemContainerStyle = ItemContainerStyle == null ? rowFilesListStyle : ItemContainerStyle;
-
-            if (FilePesentFlag!=true | ItemContainerStyle == null || ItemContainerStyle == tileFilesListStyle)
-            {
-                ItemContainerStyle = rowFilesListStyle;
-                FileListStyle = null;
-            }
-            else
-            {
-                ItemContainerStyle = tileFilesListStyle;
-                FileListStyle = fileListStyle;
-            }
-
-        }
         #endregion
-
 
         #region Commands
 
@@ -238,11 +205,6 @@ namespace CloudManager
         public ICommand OpenNewAccountPageCommand { get; set; }
 
         public ICommand OpenWorkPageCommand { get; set; }
-
-        public ICommand ChangeFileListPresentationCommand { get; set; }
-
         #endregion
-
-
     }
 }

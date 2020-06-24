@@ -2,21 +2,99 @@
     x:Class="CloudManager.WorkPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:CloudManager.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CloudManager"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="WorkPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    mc:Ignorable="d">
-    <Grid Background="White">
+    x:TypeArguments="local:WorkPageViewModel"
+    mc:Ignorable="d" SizeChanged="BasePage_SizeChanged" Background="{StaticResource CommonBackgroundColorBrush}">
+    <Grid Margin="15,5,15,5" ClipToBounds="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition />
+            <ColumnDefinition x:Name="descriptionView" Width="290" />
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition/>
+            <RowDefinition Height="50" />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0">
+            <TextBox 
+                Height="30"
+                Style="{StaticResource SearchTextBox}"
+                Tag="Search" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Border
+                Background="Transparent"
+                CornerRadius="15">
+                <Grid>
+                    <ListBox
+                        Margin="0,0,0,70"
+                        Padding="0"
+                        
+                        HorizontalContentAlignment="Stretch"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        ItemContainerStyle="{StaticResource DriveListContainerStyle}"
+                        ItemsSource="{Binding MyProperty}"
+                        ScrollViewer.CanContentScroll="False"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                        VirtualizingPanel.ScrollUnit="Pixel" >
+                       
+                    </ListBox>
+                    <controls:RoundedButton
+                        Height="40"
+                        Margin="10"
+                        VerticalAlignment="Bottom"
+                        Background="{StaticResource AddButtonColorBrush}"
+                        BorderBrush="{StaticResource AddButtonBorderColorBrush}"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <TextBlock Style="{StaticResource FileContextMenuBtn}" Text="&#xf067;" />
+                    </controls:RoundedButton>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             
+            
+            
+            <local:SwitchControl
+                Width="50"
+                Height="25"
+                Grid.Column="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                IsChecked="{Binding FilePesentFlag, Mode=TwoWay}" />
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <ListBox
+                Margin="10,10,10,0"
+                HorizontalContentAlignment="Stretch"
+                Background="Transparent"
+                BorderThickness="0"
+                ItemContainerStyle="{Binding ItemContainerStyle, Mode=TwoWay}"
+                ItemsSource="{Binding MyProperty}"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                Style="{Binding FileListStyle, Mode=TwoWay}"
+                VirtualizingPanel.ScrollUnit="Pixel" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Border Background="Green"/>
         </Grid>
     </Grid>
 </local:BasePage>

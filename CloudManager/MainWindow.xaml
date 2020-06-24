@@ -111,77 +111,10 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid Background="{StaticResource BackgroundLightBrush}" ClipToBounds="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220" />
-            <ColumnDefinition />
-            <ColumnDefinition Width="290" />
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="0">
-            <TextBox
-                Height="30"
-                Margin="20,5"
-                BorderBrush="{StaticResource RegularBorderColor}"
-                Style="{StaticResource SearchTextBox}"
-                Tag="Search" />
-        </Grid>
-
-        <Grid Grid.Row="1">
-            <Border
-                Margin="10"
-                Background="{StaticResource DiskListBackgroundBrush}"
-                CornerRadius="15">
-                <Grid>
-                    <ListBox
-                        Margin="0,0,0,70"
-                        Padding="0"
-                        HorizontalContentAlignment="Stretch"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        ItemContainerStyle="{StaticResource DriveListContainerStyle}"
-                        ItemsSource="{Binding MyProperty}"
-                        ScrollViewer.CanContentScroll="False"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                        VirtualizingPanel.ScrollUnit="Pixel" />
-                    <controls:RoundedButton
-                        Height="40"
-                        Margin="10"
-                        VerticalAlignment="Bottom"
-                        Background="{StaticResource AddButtonColorBrush}"
-                        BorderBrush="{StaticResource RegularBorderColor}"
-                        BorderThickness="1"
-                        CornerRadius="10">
-                        <TextBlock Style="{StaticResource IconsPurple}" Text="&#xf067;" />
-                    </controls:RoundedButton>
-                </Grid>
-            </Border>
-        </Grid>
-
-        <Grid Grid.Column="1">
-            <local:SwitchControl
-                Width="74.667"
-                Margin="44.333,10,0,12"
-                HorizontalAlignment="Left"
-                IsChecked="{Binding FilePesentFlag, Mode=TwoWay}" />
-        </Grid>
-
-        <Grid Grid.Row="1" Grid.Column="1">
-            <ListBox
-                Margin="0,10"
-                HorizontalContentAlignment="Stretch"
-                Background="Transparent"
-                BorderThickness="0"
-                ItemContainerStyle="{Binding ItemContainerStyle, Mode=TwoWay}"
-                ItemsSource="{Binding MyProperty}"
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                Style="{Binding FileListStyle, Mode=TwoWay}"
-                VirtualizingPanel.ScrollUnit="Pixel" />
-        </Grid>
+    <Grid>
+            <local:PageHost
+                d:DataContext=""
+                CurrentPage="{Binding}"
+                DataContext="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConverter}}" />
     </Grid>
 </Window>

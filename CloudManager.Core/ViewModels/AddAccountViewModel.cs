@@ -9,7 +9,7 @@ namespace CloudManager.Core
         public AddAccountViewModel()
         {
             ClosePage = new RelayCommand(async () => await CloseThisPageMethodAsync());
-            SelectCloudForAuth = new RelayParameterizedCommand(async (cloudType) => await SelectCloudForAuthCommand(cloudType));
+            ToWorckPageCommand = new RelayParameterizedCommand(async (cloudType) => await SelectCloudForAuthCommand(cloudType));
         }
         #endregion
 
@@ -23,14 +23,14 @@ namespace CloudManager.Core
         public async Task SelectCloudForAuthCommand(object cloudType)
         {
             IoC.Get<ApplicationViewModel>().CurrentAuthAdress = cloudType;
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LoginPage);
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.WorkPage);
             await Task.Delay(500);
         }
         #endregion
 
         #region Commands
         public ICommand ClosePage { get; set; }
-        public ICommand SelectCloudForAuth { get; set; }
+        public ICommand ToWorckPageCommand { get; set; }
         #endregion
     }
    

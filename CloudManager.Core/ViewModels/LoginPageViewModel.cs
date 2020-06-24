@@ -13,7 +13,7 @@ namespace CloudManager.Core
 
         public LoginPageViewModel()
         {
-            ClosePage = new RelayCommand(async () => await CloseThisPageMethodAsync());
+            ToWorckPageCommand = new RelayCommand(async () => await CloseThisPageMethodAsync());
             AuthentificationStart();
         }
 
@@ -37,10 +37,10 @@ namespace CloudManager.Core
 
         public async Task CloseThisPageMethodAsync()
         {
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.AddAccountPage);
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.WorkPage);
             await Task.Delay(1);
         }
-        public ICommand ClosePage { get; set; }
+        public ICommand ToWorckPageCommand { get; set; }
     }
     public enum AccountType
     {

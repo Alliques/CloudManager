@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:CloudManager.Styles">
+    xmlns:local="clr-namespace:CloudManager.ResourceDictionary.DarkTheme">
     <FontFamily x:Key="Roboto">pack://application;,,,/Resources/Fonts/#Roboto</FontFamily>
     <FontFamily x:Key="FontAwesome">pack://application;,,,/Resources/Fonts/#FontAwesome</FontFamily>
 
@@ -21,27 +21,27 @@
     <Style BasedOn="{StaticResource BaseTextBlockStyle}" TargetType="{x:Type TextBlock}" />
     <Style BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type ListView}" />
 
-    <Style x:Key="IconsPurple" TargetType="TextBlock">
+    <Style x:Key="FileContextMenuBtn" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="Foreground" Value="{StaticResource MainIconColorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommonBlackColorBrush}" />
     </Style>
 
     <Style x:Key="TitleRegular" TargetType="TextBlock">
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="Foreground" Value="{StaticResource TitleColorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommonTitleColorBrush}" />
         <Setter Property="FontWeight" Value="Medium" />
     </Style>
 
     <Style x:Key="LowTitleRegular" TargetType="TextBlock">
         <Setter Property="FontSize" Value="10" />
-        <Setter Property="Foreground" Value="{StaticResource TitleColorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommonTitleColorBrush}" />
         <Setter Property="FontWeight" Value="Medium" />
     </Style>
 
     <Style x:Key="DescriptionRegular" TargetType="TextBlock">
         <Setter Property="FontSize" Value="10" />
-        <Setter Property="Foreground" Value="{StaticResource DescriptionColorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommonDescriptionColorBrush}" />
         <Setter Property="FontWeight" Value="Medium" />
     </Style>
 
@@ -49,7 +49,7 @@
         x:Key="SearchPlaceholderTextStyle"
         BasedOn="{StaticResource TitleRegular}"
         TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{StaticResource DescriptionColorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource CommonDescriptionColorBrush}" />
     </Style>
 
     <Style x:Key="SearchControlTextStyle" TargetType="ScrollViewer">
