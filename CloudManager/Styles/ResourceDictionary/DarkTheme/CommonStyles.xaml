@@ -3,9 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:CloudManager.Controls"
     xmlns:local="clr-namespace:Styles.ResourceDictionary.DarkTheme">
-    <ResourceDictionary.MergedDictionaries>
+    <!--<ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Brushes.xaml" />
-    </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary.MergedDictionaries>-->
     <Style x:Key="DriveListContainerStyle" TargetType="ListBoxItem">
         <Setter Property="Template">
             <Setter.Value>
@@ -31,7 +31,7 @@
                                     Grid.Column="0"
                                     Background="{StaticResource CommonItemsBackgroundColorBrush}"
                                     BorderBrush="{StaticResource CommonLightBorderColorBrush}"
-                                    BorderThickness="1"
+                                    BorderThickness="1.2"
                                     CornerRadius="11" />
                                 <Grid Grid.Column="1" Margin="5,0,0,5">
                                     <Grid.RowDefinitions>
@@ -70,7 +70,7 @@
                                 Margin="0,10,0,0"
                                 Background="{StaticResource CommonItemsBackgroundColorBrush}"
                                 BorderBrush="{StaticResource CommonLightBorderColorBrush}"
-                                BorderThickness="1"
+                                BorderThickness="1.2"
                                 CornerRadius="18,16,16,18">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -83,9 +83,9 @@
                                         Margin="-1"
                                         Background="{StaticResource CommonItemsBackgroundColorBrush}"
                                         BorderBrush="{StaticResource CommonLightBorderColorBrush}"
-                                        BorderThickness="1"
+                                        BorderThickness="1.2"
                                         CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ActualHeight}">
-                                        <Image />
+                                        <Image  />
                                     </Border>
                                     <StackPanel
                                         Grid.Column="1"
@@ -106,7 +106,7 @@
                                         Margin="3"
                                         Background="{StaticResource CommonItemsBackgroundColorBrush}"
                                         BorderBrush="{StaticResource CommonLightBorderColorBrush}"
-                                        BorderThickness="1"
+                                        BorderThickness="1.2"
                                         CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight, Converter={StaticResource HalfSizeConverter}}">
                                         <TextBlock
                                             x:Name="uploadText"
@@ -123,6 +123,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="true">
+                            <Setter TargetName="descAvatar" Property="BorderThickness" Value="0"/>
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -139,17 +140,17 @@
                                         <ColorAnimation
                                             Storyboard.TargetName="border"
                                             Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                            To="{StaticResource SelectedDriveBgColor}"
+                                            To="{StaticResource DriveListSelectedItemColor}"
                                             Duration="0:0:0.2" />
                                         <ColorAnimation
                                             Storyboard.TargetName="descrBorder"
                                             Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                            To="{StaticResource SelectedDriveDescrcontainerColor}"
+                                            To="{StaticResource PrivalingFilesInformationBarColor}"
                                             Duration="0:0:0.2" />
                                         <ColorAnimation
                                             Storyboard.TargetName="descrBorder"
                                             Storyboard.TargetProperty="BorderBrush.Color"
-                                            To="{StaticResource SelectedDriveBgColor}"
+                                            To="{StaticResource PrivalingFilesInformationBarColor}"
                                             Duration="0:0:0.2" />
                                         <ColorAnimation
                                             Storyboard.TargetName="descAvatar"
@@ -159,17 +160,17 @@
                                         <ColorAnimation
                                             Storyboard.TargetName="descAvatar"
                                             Storyboard.TargetProperty="BorderBrush.Color"
-                                            To="{StaticResource SelectedDriveDescrcontainerColor}"
+                                            To="{StaticResource CommonWhiteColor}"
                                             Duration="0:0:0.2" />
                                         <ColorAnimation
                                             Storyboard.TargetName="upload"
                                             Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                            To="{StaticResource SelectedDriveUploadColor}"
+                                            To="{StaticResource UploadColor}"
                                             Duration="0:0:0.2" />
                                         <ColorAnimation
                                             Storyboard.TargetName="upload"
                                             Storyboard.TargetProperty="BorderBrush.Color"
-                                            To="{StaticResource SelectedDriveUploadColor}"
+                                            To="{StaticResource UploadColor}"
                                             Duration="0:0:0.2" />
                                         <ColorAnimation
                                             Storyboard.TargetName="title"
@@ -302,7 +303,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource CommonBackgroundColorBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="{StaticResource CommonItemsBackgroundColorBrush}" />
-        <Setter Property="Foreground" Value="{StaticResource TitleColorBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource CommonTitleColorBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource Roboto}" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="Medium" />
@@ -391,7 +392,6 @@
         </Setter>
     </Style>
 
-
     <Style x:Key="RowFilesListStyle" TargetType="ListBoxItem">
         <Setter Property="Template">
             <Setter.Value>
@@ -401,7 +401,7 @@
                         Height="40"
                         Margin="0,0,0,8"
                         BorderBrush="{StaticResource CommonBorderColorBrush}"
-                        BorderThickness="2"
+                        BorderThickness="1.5"
                         CornerRadius="8">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -445,7 +445,7 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="True" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedFileBgColorBrush}" />
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DriveListSelectedItemBorderColorBrush}" />
                             <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DriveListSelectedItemColorBrush}" />
                             <Setter TargetName="contextMenuBtn" Property="Visibility" Value="Hidden" />
                         </MultiTrigger>
@@ -467,7 +467,7 @@
                         Height="80"
                         Margin="0,0,10,10"
                         BorderBrush="{StaticResource CommonBorderColorBrush}"
-                        BorderThickness="2"
+                        BorderThickness="1.5"
                         CornerRadius="8">
                         <Grid>
                             <Grid.ColumnDefinitions>

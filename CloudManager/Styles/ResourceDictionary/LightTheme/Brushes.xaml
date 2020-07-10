@@ -1,21 +1,48 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Styles.ResourceDictionary.LightTheme">
-    <Color x:Key="CommonBackgroundColor">#EFEFEF</Color>
+    <Color x:Key="CommonBackgroundColor">#efefef</Color>
     <SolidColorBrush x:Key="CommonBackgroundColorBrush" Color="{StaticResource CommonBackgroundColor}" />
 
-    <Color x:Key="DriveListBackgroundColor">#E4E4E4</Color>
+    <Color x:Key="DriveListBackgroundColor">#e2e2e2</Color>
     <SolidColorBrush x:Key="DriveListBackgroundColorBrush" Color="{StaticResource DriveListBackgroundColor}" />
 
-    <Color x:Key="CommonItemsBackgroundColor">#FAFAFA</Color>
+    <Color x:Key="CommonItemsBackgroundColor">#fafafa</Color>
     <SolidColorBrush x:Key="CommonItemsBackgroundColorBrush" Color="{StaticResource CommonItemsBackgroundColor}" />
 
-    <Color x:Key="CommonBorderColor">#E4E4E4</Color>
+    <Color x:Key="CommonBorderColor">#dcdcdc</Color>
     <SolidColorBrush x:Key="CommonBorderColorBrush" Color="{StaticResource CommonBorderColor}" />
+
+    <Color x:Key="CommonLightBorderColor">#ebebeb</Color>
+    <SolidColorBrush x:Key="CommonLightBorderColorBrush" Color="{StaticResource CommonLightBorderColor}" />
 
     <Color x:Key="DriveListSelectedItemColor">#5E56E8</Color>
     <SolidColorBrush x:Key="DriveListSelectedItemColorBrush" Color="{StaticResource DriveListSelectedItemColor}" />
 
+    <Color x:Key="DriveListSelectedItemBorderColor">#DFDFED</Color>
+    <SolidColorBrush x:Key="DriveListSelectedItemBorderColorBrush" Color="{StaticResource DriveListSelectedItemBorderColor}" />
+
     <Color x:Key="PrivalingFilesInformationBarColor">#4943B3</Color>
     <SolidColorBrush x:Key="PrivalingFilesInformationBarColorBrush" Color="{StaticResource PrivalingFilesInformationBarColor}" />
+
+    <Color x:Key="SelectedFileBgColor">#DFDFED</Color>
+    <SolidColorBrush x:Key="SelectedFileBgColorBrush" Color="{StaticResource SelectedFileBgColor}" />
+
+    <Color x:Key="CommonWhiteColor">#ffffff</Color>
+    <SolidColorBrush x:Key="CommonWhiteColorBrush" Color="{StaticResource CommonWhiteColor}" />
+
+    <Color x:Key="CommonTitleColor">#F6F6F6</Color>
+    <SolidColorBrush x:Key="CommonTitleColorBrush" Color="{StaticResource CommonTitleColor}" />
+
+    <Color x:Key="CommonDescriptionColor">#6B6B6B</Color>
+    <SolidColorBrush x:Key="CommonDescriptionColorBrush" Color="{StaticResource CommonDescriptionColor}" />
+
+    <Color x:Key="CommonBlackColor">#000000</Color>
+    <SolidColorBrush x:Key="CommonBlackColorBrush" Color="{StaticResource CommonBlackColor}" />
+
+    <Color x:Key="UploadColor">#7A75C6</Color>
+    <SolidColorBrush x:Key="UploadColorBrush" Color="{StaticResource UploadColor}" />
+
+    <Color x:Key="AddDriveBtnColor">#35344F</Color>
+    <SolidColorBrush x:Key="AddDriveBtnColorBrush" Color="{StaticResource AddDriveBtnColor}" />
 </ResourceDictionary>

@@ -15,7 +15,7 @@
         <Border
             Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight, Converter={StaticResource HalfSizeConverter}, ConverterParameter=*}"
             Background="{StaticResource CommonItemsBackgroundColorBrush}"
-            BorderBrush="{StaticResource DriveListBackgroundColorBrush}"
+            BorderBrush="{StaticResource CommonItemsBackgroundColorBrush}"
             BorderThickness="1"
             CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight, Converter={StaticResource halfSizeConverter}}" />
 

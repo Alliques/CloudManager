@@ -31,8 +31,9 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Border
-                Background="Transparent"
+            <Border 
+                Padding="10,0"
+                Background="{StaticResource DriveListBackgroundColorBrush}"
                 CornerRadius="15">
                 <Grid>
                     <ListBox
@@ -51,11 +52,11 @@
                     </ListBox>
                     <controls:RoundedButton
                         Height="40"
-                        Margin="10"
+                        Background="{StaticResource AddDriveBtnColorBrush}"
+                        Margin="0,0,0,10"
+                        BorderBrush="{StaticResource DriveListSelectedItemColorBrush}"
                         VerticalAlignment="Bottom"
-                        Background="{StaticResource AddButtonColorBrush}"
-                        BorderBrush="{StaticResource AddButtonBorderColorBrush}"
-                        BorderThickness="1"
+                        BorderThickness="1.5"
                         CornerRadius="10">
                         <TextBlock Style="{StaticResource FileContextMenuBtn}" Text="&#xf067;" />
                     </controls:RoundedButton>
