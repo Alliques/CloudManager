@@ -28,10 +28,10 @@
     <Color x:Key="SelectedFileBgColor">#DFDFED</Color>
     <SolidColorBrush x:Key="SelectedFileBgColorBrush" Color="{StaticResource SelectedFileBgColor}" />
 
-    <Color x:Key="CommonWhiteColor">#ffffff</Color>
+    <Color x:Key="CommonWhiteColor">#000000</Color>
     <SolidColorBrush x:Key="CommonWhiteColorBrush" Color="{StaticResource CommonWhiteColor}" />
 
-    <Color x:Key="CommonTitleColor">#F6F6F6</Color>
+    <Color x:Key="CommonTitleColor">#000000</Color>
     <SolidColorBrush x:Key="CommonTitleColorBrush" Color="{StaticResource CommonTitleColor}" />
 
     <Color x:Key="CommonDescriptionColor">#6B6B6B</Color>
