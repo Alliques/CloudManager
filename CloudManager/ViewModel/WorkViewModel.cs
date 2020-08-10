@@ -51,9 +51,8 @@ namespace CloudManager
 
             MyProperty = new List<string> { "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs" };
 
-
-
             ChangeFileListPresentationCommand = new RelayCommand(() => ChangeFileListPresentation());
+            AddingDriveCommand = new RelayCommand(() => AddingDrive());
         }
         private void ChangeFileListPresentation()
         {
@@ -73,10 +72,15 @@ namespace CloudManager
                 ItemContainerStyle = tileFilesListStyle;
                 FileListStyle = fileListStyle;
             }
+        }
 
+        public  void AddingDrive()
+        {
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.AddingDrive);
         }
 
         public ICommand ChangeFileListPresentationCommand { get; set; }
+        public ICommand AddingDriveCommand { get; set; }
 
     }
 }

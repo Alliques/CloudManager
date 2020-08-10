@@ -51,6 +51,7 @@
                        
                     </ListBox>
                     <controls:RoundedButton
+                        Command="{Binding AddingDriveCommand}"
                         Height="40"
                         Background="{StaticResource AddDriveBtnColorBrush}"
                         Margin="0,0,0,10"

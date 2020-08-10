@@ -17,6 +17,8 @@ namespace CloudManager
                     return new AddAccountPage();
                 case ApplicationPage.WorkPage:
                     return new WorkPage();
+                case ApplicationPage.AddingDrive:
+                    return new AddingDrivePage();
                 default:
                     Debugger.Break();
                     return null;
