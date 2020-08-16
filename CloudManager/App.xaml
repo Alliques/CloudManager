@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="Styles/Templates.xaml" />
                 <ResourceDictionary Source="Styles/ControlsStyles.xaml" />
                 <ResourceDictionary Source="Styles/ResourceDictionary/LightTheme/Brushes.xaml" />
+                <ResourceDictionary Source="/Styles/CommonStyles.xaml"/>
                 <ResourceDictionary Source="Styles/ResourceDictionary/DarkTheme/CommonStyles.xaml" />
                 <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

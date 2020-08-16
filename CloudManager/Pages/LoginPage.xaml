@@ -12,6 +12,6 @@
     Unloaded="BasePage_Unloaded"
     mc:Ignorable="d">
     <Grid>
-
+        <cef:ChromiumWebBrowser Address="https://yandex.ru"/>
     </Grid>
 </local:BasePage>
