@@ -24,13 +24,13 @@ namespace CloudManager.Core
                 case StorageType.None:
                     break;
                 case StorageType.GooleDrive:
-                    
+                    IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Authentification);
                     break;
                 case StorageType.OneDrive:
-                    
+                    IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Authentification);
                     break;
                 case StorageType.YandexDisk:
-                   
+                    IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Authentification);
                     break;
                 default:
                     break;

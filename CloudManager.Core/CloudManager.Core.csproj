@@ -60,6 +60,7 @@
     <Compile Include="ViewModels\AddAccountViewModel.cs" />
     <Compile Include="ViewModels\AddingDriveViewModel.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
+    <Compile Include="ViewModels\AuthentificationViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseVeiwModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\RelayParameterizedCommand.cs" />

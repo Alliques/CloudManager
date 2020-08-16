@@ -14,6 +14,7 @@ namespace CloudManager.Core
         AddAccountPage=0,
         LoginPage=1,
         WorkPage=2,
-        AddingDrive=3
+        AddingDrive=3,
+        Authentification=4
     }
 }
