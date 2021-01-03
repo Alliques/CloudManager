@@ -1,6 +1,5 @@
 ﻿
-using CefSharp;
-using CefSharp.Wpf;
+
 using CloudManager.Core;
 
 namespace CloudManager
@@ -21,9 +20,5 @@ namespace CloudManager
            
         }
 
-        private void Browser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
-        {
-           //browser.GetFocusedFrame();
-        }   
     }
 }

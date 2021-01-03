@@ -6,12 +6,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:core="clr-namespace:CloudManager.Core;assembly=CloudManager.Core"
       x:TypeArguments="core:AuthentificationViewModel"
-      xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
       xmlns:local="clr-namespace:CloudManager"
       mc:Ignorable="d" 
       Title="AuthentificationPage" d:DesignWidth="498.229" d:DesignHeight="415.203">
 
     <Grid>
-        <cef:ChromiumWebBrowser Address="https://yandex.ru"/>
     </Grid>
 </local:BasePage>
