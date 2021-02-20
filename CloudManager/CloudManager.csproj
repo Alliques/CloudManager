@@ -164,10 +164,11 @@
       <DependentUpon>WorkPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\CustomizableButton.cs" />
+    <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ValueConverters\HalfSizeConverter.cs" />
     <Compile Include="ValueConverters\IoCConverter.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
-    <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\BaseMultiValueConverter.cs" />
     <Compile Include="ValueConverters\StorageTypeValueConverter.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

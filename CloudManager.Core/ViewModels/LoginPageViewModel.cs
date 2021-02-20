@@ -19,20 +19,7 @@ namespace CloudManager.Core
 
         private void AuthentificationStart()
         {
-            var cloudType=IoC.Get<ApplicationViewModel>().CurrentAuthAdress as string;
-            switch (cloudType)
-            {
-                case nameof(AccountType.GoogleDrive):
-                    break;
-                case nameof(AccountType.OneDrive):
-                    break;
-                case nameof(AccountType.MailCloud):
-                    break;
-                case nameof(AccountType.YandexDisk):
-                    break;
-                default:
-                    break;
-            }
+           
         }
 
         public async Task CloseThisPageMethodAsync()

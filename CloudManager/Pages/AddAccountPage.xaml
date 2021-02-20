@@ -14,7 +14,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <StackPanel>
+        <StackPanel VerticalAlignment="Center">
             <TextBox Width="200" Height="50" />
             <TextBox Width="200" Height="50" />
             <Button

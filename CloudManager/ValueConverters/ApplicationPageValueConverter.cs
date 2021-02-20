@@ -5,11 +5,13 @@ using System.Globalization;
 
 namespace CloudManager
 {
-    public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
+    public class ApplicationPageValueConverter : BaseValueMultiConverter<ApplicationPageValueConverter>
     {
-        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+
+        public override object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            switch ((ApplicationPage)value)
+            var p = (DriveType)values[1];
+            switch ((ApplicationPage)values[0])
             {
                 case ApplicationPage.LoginPage:
                     return new LoginPage();
@@ -27,7 +29,7 @@ namespace CloudManager
             }
         }
 
-        public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

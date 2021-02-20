@@ -54,7 +54,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Command="{Binding SelectDriveCommand}"
-                    CommandParameter="{x:Static core:StorageType.OneDrive}"
+                    CommandParameter="{x:Static core:DriveType.OneDrive}"
                     CornerRadius="0"
                     Style="{StaticResource iconAnimationStyle}">
                     <Viewbox>
@@ -75,7 +75,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Command="{Binding SelectDriveCommand}"
-                    CommandParameter="{x:Static core:StorageType.GooleDrive}"
+                    CommandParameter="{x:Static core:DriveType.GooleDrive}"
                     CornerRadius="0"
                     Style="{StaticResource iconAnimationStyle}">
                     <Viewbox>
@@ -138,7 +138,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Command="{Binding SelectDriveCommand}"
-                    CommandParameter="{x:Static core:StorageType.YandexDisk}"
+                    CommandParameter="{x:Static core:DriveType.YandexDisk}"
                     CornerRadius="0"
                     Style="{StaticResource iconAnimationStyle}">
                     <Viewbox>

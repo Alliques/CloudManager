@@ -22,7 +22,6 @@ namespace CloudManager.Core
 
         public async Task SelectCloudForAuthCommand(object cloudType)
         {
-            IoC.Get<ApplicationViewModel>().CurrentAuthAdress = cloudType;
             IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.WorkPage);
             await Task.Delay(500);
         }

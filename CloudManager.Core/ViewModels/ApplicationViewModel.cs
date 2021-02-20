@@ -9,19 +9,22 @@ namespace CloudManager.Core
         public ApplicationViewModel()
         {
         }
-        public object CurrentAuthAdress { get;  set; }
+        public DriveType Storage { get; private set; } = DriveType.None;
 
-
+        
         /// <summary>
         /// The current page of the application
         /// </summary>
-        /// 
         public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.AddAccountPage;
 
         public void GoToPage(ApplicationPage page)
         {
             CurrentPage = page;
-
+        }
+        public void GoToAuthPage(ApplicationPage page, DriveType storage)
+        {
+            CurrentPage = page;
+            Storage = storage;
         }
     }
 }

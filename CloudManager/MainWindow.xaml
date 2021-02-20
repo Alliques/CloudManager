@@ -112,9 +112,25 @@
         </Style>
     </Window.Resources>
     <Grid>
-            <local:PageHost
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="727*"/>
+            <ColumnDefinition Width="72*"/>
+        </Grid.ColumnDefinitions>
+        <local:PageHost
                 d:DataContext=""
-                CurrentPage="{Binding}"
-                DataContext="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:ApplicationPageValueConverter}}" />
+                CurrentPage="{Binding}" Grid.ColumnSpan="2"  Margin="0,0,0.4,0" >
+            <local:PageHost.Style>
+                <Style TargetType="local:PageHost">
+                    <Setter Property="DataContext">
+                        <Setter.Value>
+                            <MultiBinding Converter="{local:ApplicationPageValueConverter}">
+                                <Binding Path="ApplicationViewModel.CurrentPage" Source="{x:Static local:ViewModelLocator.Instance}"/>
+                                <Binding Path="ApplicationViewModel.Storage" Source="{x:Static local:ViewModelLocator.Instance}"/>
+                            </MultiBinding>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </local:PageHost.Style>
+        </local:PageHost>
     </Grid>
 </Window>
