@@ -1,7 +1,5 @@
 ﻿
 
-using CloudManager.Core;
-
 namespace CloudManager
 {
     /// <summary>

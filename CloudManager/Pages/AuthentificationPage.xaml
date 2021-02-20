@@ -4,8 +4,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:core="clr-namespace:CloudManager.Core;assembly=CloudManager.Core"
-      x:TypeArguments="core:AuthentificationViewModel"
+      x:TypeArguments="local:AuthentificationViewModel"
       xmlns:local="clr-namespace:CloudManager"
       mc:Ignorable="d" 
       Title="AuthentificationPage" d:DesignWidth="498.229" d:DesignHeight="415.203">

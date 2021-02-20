@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Controls;
-using CloudManager.Core;
 
 namespace CloudManager
 {
@@ -78,7 +77,7 @@ namespace CloudManager
     /// </summary>
     /// <typeparam name="VM"></typeparam>
     public class BasePage<VM> : BasePage
-        where VM : Core.BaseViewModel, new()
+        where VM : BaseViewModel, new()
     {
         #region Private member
         private VM mViewModel;

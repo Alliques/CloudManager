@@ -1,5 +1,4 @@
-﻿using CloudManager.Core;
-using Fasetto.Word;
+﻿using Fasetto.Word;
 using System;
 using System.Windows;
 using System.Windows.Input;

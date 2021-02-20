@@ -147,6 +147,9 @@
     <Compile Include="Controls\SwitchControl.xaml.cs">
       <DependentUpon>SwitchControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModels\ApplicationPage.cs" />
+    <Compile Include="DataModels\DriveType.cs" />
+    <Compile Include="IoC\IocContainer.cs" />
     <Compile Include="Pages\AddAccountPage.xaml.cs">
       <DependentUpon>AddAccountPage.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,14 @@
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseMultiValueConverter.cs" />
     <Compile Include="ValueConverters\StorageTypeValueConverter.cs" />
+    <Compile Include="ViewModel\AddAccountViewModel.cs" />
+    <Compile Include="ViewModel\AddingDriveViewModel.cs" />
+    <Compile Include="ViewModel\ApplicationViewModel.cs" />
+    <Compile Include="ViewModel\AuthentificationViewModel.cs" />
+    <Compile Include="ViewModel\Base\BaseVeiwModel.cs" />
+    <Compile Include="ViewModel\Base\RelayCommand.cs" />
+    <Compile Include="ViewModel\Base\RelayParameterizedCommand.cs" />
+    <Compile Include="ViewModel\LoginPageViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WorkViewModel.cs" />
@@ -306,12 +317,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CloudManager.Core\CloudManager.Core.csproj">
-      <Project>{5af48923-7d8c-4b5f-87e1-3f6c885ad3f8}</Project>
-      <Name>CloudManager.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\images\googleDrive.svg" />
