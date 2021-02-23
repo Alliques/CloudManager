@@ -1,0 +1,64 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CloudManager.Styles">
+    <Color x:Key="BackgroundLight">#efefef</Color>
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}" />
+
+    <Color x:Key="DiskListBackground">#E4E4E5</Color>
+    <SolidColorBrush x:Key="DiskListBackgroundBrush" Color="{StaticResource DiskListBackground}" />
+
+    <Color x:Key="RegularBorderColor">#CDCDE3</Color>
+    <SolidColorBrush x:Key="RegularBorderColorBrush" Color="{StaticResource RegularBorderColor}" />
+
+    <Color x:Key="AddButtonColor">#D5D5E3</Color>
+    <SolidColorBrush x:Key="AddButtonColorBrush" Color="{StaticResource AddButtonColor}" />
+
+    <Color x:Key="MainIconColor">#6A63E9</Color>
+    <SolidColorBrush x:Key="MainIconColorBrush" Color="{StaticResource MainIconColor}" />
+
+    <!--    -->
+    <SolidColorBrush x:Key="AddButtonBorderColorBrush" Color="{StaticResource RegularBorderColor}" />
+
+    <Color x:Key="SelectedDrive">#5E56E8</Color>
+    <SolidColorBrush x:Key="SelectedDriveBrush" Color="{StaticResource SelectedDrive}" />
+
+    <Color x:Key="NoSelectedDrive">#FAFAFA</Color>
+    <SolidColorBrush x:Key="NoSelectedDriveBrush" Color="{StaticResource NoSelectedDrive}" />
+
+    <Color x:Key="SearchIconColor">#4e4e4e</Color>
+    <SolidColorBrush x:Key="SearchIconColorBrush" Color="{StaticResource SearchIconColor}" />
+
+    <Color x:Key="PlaceholderColor">#B5B5B5</Color>
+    <SolidColorBrush x:Key="PlaceholderColorBrush" Color="{StaticResource PlaceholderColor}" />
+
+    <Color x:Key="ShadowColor">#E1E1E1</Color>
+    <SolidColorBrush x:Key="ShadowColorBrush" Color="{StaticResource ShadowColor}" />
+
+    <Color x:Key="TitleColor">#2d2d2d</Color>
+    <SolidColorBrush x:Key="TitleColorBrush" Color="{StaticResource TitleColor}" />
+
+    <Color x:Key="DescriptionColor">#b9b9b9</Color>
+    <SolidColorBrush x:Key="DescriptionColorBrush" Color="{StaticResource DescriptionColor}" />
+
+    <Color x:Key="SelectedDriveBgColor">#5E56E8</Color>
+    <SolidColorBrush x:Key="SelectedDriveBgColorBrush" Color="{StaticResource SelectedDriveBgColor}" />
+
+    <Color x:Key="SelectedDriveTextColor">#E4E5F4</Color>
+    <SolidColorBrush x:Key="SelectedDriveTextColorBrush" Color="{StaticResource SelectedDriveTextColor}" />
+
+    <Color x:Key="SelectedDriveDescrcontainerColor">#4943B3</Color>
+    <SolidColorBrush x:Key="SelectedDriveDescrcontainerColorBrush" Color="{StaticResource SelectedDriveDescrcontainerColor}" />
+
+    <Color x:Key="SelectedDriveUploadColor">#6C67C1</Color>
+    <SolidColorBrush x:Key="SelectedDriveUploadColorBrush" Color="{StaticResource SelectedDriveUploadColor}" />
+
+    <Color x:Key="SelectedFileBgColor">#DFE0E9</Color>
+    <SolidColorBrush x:Key="SelectedFileBgColorBrush" Color="{StaticResource SelectedFileBgColor}" />
+
+    <Color x:Key="FileListMenuButtonBackgroundColor">#6C65EC</Color>
+    <SolidColorBrush x:Key="FileListMenuButtonBackgroundBrush" Color="{StaticResource FileListMenuButtonBackgroundColor}" />
+    
+
+
+</ResourceDictionary>
