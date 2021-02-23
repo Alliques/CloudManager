@@ -139,6 +139,12 @@
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
     <Compile Include="AttachedProperties\NoFrameHistory.cs" />
+    <Compile Include="Controls\Disk\DiskList\DiskListControl.xaml.cs">
+      <DependentUpon>DiskListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Disk\DiskList\DiskListItemControl.xaml.cs">
+      <DependentUpon>DiskListItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
@@ -173,18 +179,29 @@
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseMultiValueConverter.cs" />
     <Compile Include="ValueConverters\StorageTypeValueConverter.cs" />
-    <Compile Include="ViewModel\AddAccountViewModel.cs" />
-    <Compile Include="ViewModel\AddingDriveViewModel.cs" />
-    <Compile Include="ViewModel\ApplicationViewModel.cs" />
-    <Compile Include="ViewModel\AuthentificationViewModel.cs" />
+    <Compile Include="ViewModel\Disk\DiskList\ChatListItemViewModel.cs" />
+    <Compile Include="ViewModel\Disk\DiskList\Design\DisklistDesignModel.cs" />
+    <Compile Include="ViewModel\Disk\DiskList\DiskListViewModel.cs" />
+    <Compile Include="ViewModel\Pages\AddAccountViewModel.cs" />
+    <Compile Include="ViewModel\Pages\AddingDriveViewModel.cs" />
+    <Compile Include="ViewModel\Pages\ApplicationViewModel.cs" />
+    <Compile Include="ViewModel\Pages\AuthentificationViewModel.cs" />
     <Compile Include="ViewModel\Base\BaseVeiwModel.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
     <Compile Include="ViewModel\Base\RelayParameterizedCommand.cs" />
-    <Compile Include="ViewModel\LoginPageViewModel.cs" />
+    <Compile Include="ViewModel\Pages\LoginPageViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="ViewModel\WorkViewModel.cs" />
+    <Compile Include="ViewModel\Pages\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\Pages\WorkViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
+    <Page Include="Controls\Disk\DiskList\DiskListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Disk\DiskList\DiskListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PageHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

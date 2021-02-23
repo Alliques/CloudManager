@@ -35,22 +35,16 @@
                 Padding="10,0"
                 Background="{StaticResource DriveListBackgroundColorBrush}"
                 CornerRadius="15">
-                <Grid>
-                    <ListBox
-                        Margin="0,0,0,70"
-                        Padding="0"
-                        
-                        HorizontalContentAlignment="Stretch"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        ItemContainerStyle="{StaticResource DriveListContainerStyle}"
-                        ItemsSource="{Binding MyProperty}"
-                        ScrollViewer.CanContentScroll="False"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                        VirtualizingPanel.ScrollUnit="Pixel" >
-                       
-                    </ListBox>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <local:DiskListControl Grid.Row="0" Margin="0,0,0,10">
+
+                    </local:DiskListControl>
                     <controls:RoundedButton
+                        Grid.Row="1"
                         Command="{Binding AddingDriveCommand}"
                         Height="40"
                         Background="{StaticResource AddDriveBtnColorBrush}"
