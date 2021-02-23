@@ -122,17 +122,17 @@
                             </Grid>
 
                         </Border>
-                        <!--<ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="true">
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected}" Value="true">
                                 <Setter TargetName="descAvatar" Property="BorderThickness" Value="0"/>
-                                <Trigger.EnterActions>
+                                <DataTrigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            --><!--<ColorAnimation
+                                            <ColorAnimation
                                             Storyboard.TargetName="driveAvatar"
                                             Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                             To="{StaticResource CommonWhiteColor}"
-                                            Duration="0:0:0.2" />--><!--
+                                            Duration="0:0:0.2" />
                                             <ColorAnimation
                                             Storyboard.TargetName="driveAvatar"
                                             Storyboard.TargetProperty="BorderBrush.Color"
@@ -153,11 +153,11 @@
                                             Storyboard.TargetProperty="BorderBrush.Color"
                                             To="{StaticResource PrivalingFilesInformationBarColor}"
                                             Duration="0:0:0.2" />
-                                            --><!--<ColorAnimation
+                                            <ColorAnimation
                                             Storyboard.TargetName="descAvatar"
                                             Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                             To="{StaticResource CommonWhiteColor}"
-                                            Duration="0:0:0.2" />--><!--
+                                            Duration="0:0:0.2" />
                                             <ColorAnimation
                                             Storyboard.TargetName="descAvatar"
                                             Storyboard.TargetProperty="BorderBrush.Color"
@@ -205,8 +205,8 @@
                                             Duration="0:0:0.2" />
                                         </Storyboard>
                                     </BeginStoryboard>
-                                </Trigger.EnterActions>
-                                <Trigger.ExitActions>
+                                </DataTrigger.EnterActions>
+                                <DataTrigger.ExitActions>
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <ColorAnimation
@@ -286,12 +286,12 @@
                                             Duration="0:0:0.2" />
                                         </Storyboard>
                                     </BeginStoryboard>
-                                </Trigger.ExitActions>
-                            </Trigger>
+                                </DataTrigger.ExitActions>
+                            </DataTrigger>
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter TargetName="border" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                             </Trigger>
-                        </ControlTemplate.Triggers>-->
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>

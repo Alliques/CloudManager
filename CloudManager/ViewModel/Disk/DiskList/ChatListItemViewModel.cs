@@ -8,6 +8,6 @@ namespace CloudManager
 {
     public class ChatListItemViewModel : BaseViewModel
     {
-
+        public bool IsSelected { get; set; }
     }
 }
