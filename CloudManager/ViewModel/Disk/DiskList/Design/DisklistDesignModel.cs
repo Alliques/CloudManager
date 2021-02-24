@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CloudManager
 {
@@ -11,7 +7,7 @@ namespace CloudManager
         public static DisklistDesignModel Instance => new DisklistDesignModel();
         public DisklistDesignModel()
         {
-            Items = new List<ChatListItemViewModel> { new ChatListItemViewModel(), new ChatListItemViewModel(), new ChatListItemViewModel() };
+            Items = new List<DiskListItemViewModel> { new DiskListItemViewModel(), new DiskListItemViewModel(), new DiskListItemViewModel() };
         }
     }
 }

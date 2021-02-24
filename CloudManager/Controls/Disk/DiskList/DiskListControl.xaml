@@ -1,20 +1,25 @@
-﻿<UserControl x:Class="CloudManager.DiskListControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CloudManager"
-             mc:Ignorable="d" 
-             d:DesignHeight="446.8" d:DesignWidth="179.2">
+﻿<UserControl
+    x:Class="CloudManager.DiskListControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Core="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:CloudManager"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <Grid Background="Transparent" DataContext="{x:Static local:DisklistDesignModel.Instance}">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Items}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <local:DiskListItemControl />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
+        <ListBox
+            HorizontalContentAlignment="Stretch"
+            Background="Transparent"
+            BorderThickness="0"
+            ItemContainerStyle="{StaticResource DriveListContainerStyle}"
+            ItemsSource="{Binding Items}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:DiskListItemControl />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

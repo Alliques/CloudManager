@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace CloudManager
 {
     public class DiskListViewModel : BaseViewModel
     {
-        public List<ChatListItemViewModel> Items { get; set; }
+        public List<DiskListItemViewModel> Items { get; set; }
+
+        public DiskListViewModel()
+        {
+            Items = new List<DiskListItemViewModel> { new DiskListItemViewModel(), new DiskListItemViewModel(), new DiskListItemViewModel() };
+        }
+        //public DiskListItemViewModel SelectedItem { get; set; }
+
     }
 }

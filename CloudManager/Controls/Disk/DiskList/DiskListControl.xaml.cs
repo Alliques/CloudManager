@@ -23,6 +23,14 @@ namespace CloudManager
         public DiskListControl()
         {
             InitializeComponent();
+            this.DataContext = new DiskListViewModel();
+        }
+
+
+
+        private void DiskListItems_Selected(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

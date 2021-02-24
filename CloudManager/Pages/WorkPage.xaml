@@ -10,7 +10,9 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     x:TypeArguments="local:WorkPageViewModel"
-    mc:Ignorable="d" SizeChanged="BasePage_SizeChanged" Background="{StaticResource CommonBackgroundColorBrush}">
+    Background="{StaticResource CommonBackgroundColorBrush}"
+    SizeChanged="BasePage_SizeChanged"
+    mc:Ignorable="d">
     <Grid Margin="15,5,15,5" ClipToBounds="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220" />
@@ -24,34 +26,32 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <TextBox 
+            <TextBox
                 Height="30"
                 Style="{StaticResource SearchTextBox}"
                 Tag="Search" />
         </Grid>
 
         <Grid Grid.Row="1">
-            <Border 
+            <Border
                 Padding="10,0"
                 Background="{StaticResource DriveListBackgroundColorBrush}"
                 CornerRadius="15">
-                <Grid >
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="auto"/>
+                        <RowDefinition />
+                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    <local:DiskListControl Grid.Row="0" Margin="0,0,0,10">
-
-                    </local:DiskListControl>
+                    <local:DiskListControl Grid.Row="0" Margin="0,0,0,10" />
                     <controls:RoundedButton
                         Grid.Row="1"
-                        Command="{Binding AddingDriveCommand}"
                         Height="40"
-                        Background="{StaticResource AddDriveBtnColorBrush}"
                         Margin="0,0,0,10"
-                        BorderBrush="{StaticResource DriveListSelectedItemColorBrush}"
                         VerticalAlignment="Bottom"
+                        Background="{StaticResource AddDriveBtnColorBrush}"
+                        BorderBrush="{StaticResource DriveListSelectedItemColorBrush}"
                         BorderThickness="1.5"
+                        Command="{Binding AddingDriveCommand}"
                         CornerRadius="10">
                         <TextBlock Style="{StaticResource FileContextMenuBtn}" Text="&#xf067;" />
                     </controls:RoundedButton>
@@ -61,19 +61,19 @@
 
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
-            
-            
+
+
+
             <local:SwitchControl
+                Grid.Column="2"
                 Width="50"
                 Height="25"
-                Grid.Column="2"
-                VerticalAlignment="Center"
                 HorizontalAlignment="Center"
+                VerticalAlignment="Center"
                 IsChecked="{Binding FilePesentFlag, Mode=TwoWay}" />
         </Grid>
 
@@ -90,7 +90,7 @@
                 VirtualizingPanel.ScrollUnit="Pixel" />
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
-            <Border Background="Green"/>
+            <Border Background="Green" />
         </Grid>
     </Grid>
 </local:BasePage>
