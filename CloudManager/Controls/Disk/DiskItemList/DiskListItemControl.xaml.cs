@@ -16,18 +16,15 @@ using System.Windows.Shapes;
 namespace CloudManager
 {
     /// <summary>
-    /// Interaction logic for DiskListControl.xaml
+    /// Interaction logic for DiskListItemControl.xaml
     /// </summary>
-    public partial class DiskListControl : UserControl
+    public partial class DiskListItemControl : UserControl
     {
-        public DiskListControl()
+        public DiskListItemControl()
         {
             InitializeComponent();
-            this.DataContext = new DiskListViewModel();
+            this.DataContext = new DiskListItemViewModel();
         }
-        private void DiskListItems_Selected(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        
     }
 }

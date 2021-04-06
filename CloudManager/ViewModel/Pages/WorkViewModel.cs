@@ -46,7 +46,7 @@ namespace CloudManager
 
         public WorkPageViewModel()
         {
-            ItemContainerStyle = Application.Current.FindResource("RowFilesListStyle") as Style;
+            ItemContainerStyle = Application.Current.FindResource("RowItemListStyle") as Style;
 
             MyProperty = new List<string> { "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs", "qwe", "qweqw", "dfs" };
 
@@ -55,22 +55,22 @@ namespace CloudManager
         }
         private void ChangeFileListPresentation()
         {
-            Style tileFilesListStyle = Application.Current.FindResource("TileFilesListStyle") as Style;
-            Style rowFilesListStyle = Application.Current.FindResource("RowFilesListStyle") as Style;
-            Style fileListStyle = Application.Current.FindResource("TileListStyle") as Style;
+            //Style tileFilesListStyle = Application.Current.FindResource("TileFilesListStyle") as Style;
+            //Style rowFilesListStyle = Application.Current.FindResource("RowFilesListStyle") as Style;
+            //Style fileListStyle = Application.Current.FindResource("TileListStyle") as Style;
 
-            ItemContainerStyle = ItemContainerStyle == null ? rowFilesListStyle : ItemContainerStyle;
+            //ItemContainerStyle = ItemContainerStyle == null ? rowFilesListStyle : ItemContainerStyle;
 
-            if (FilePesentFlag != true | ItemContainerStyle == null || ItemContainerStyle == tileFilesListStyle)
-            {
-                ItemContainerStyle = rowFilesListStyle;
-                FileListStyle = null;
-            }
-            else
-            {
-                ItemContainerStyle = tileFilesListStyle;
-                FileListStyle = fileListStyle;
-            }
+            //if (FilePesentFlag != true | ItemContainerStyle == null || ItemContainerStyle == tileFilesListStyle)
+            //{
+            //    ItemContainerStyle = rowFilesListStyle;
+            //    FileListStyle = null;
+            //}
+            //else
+            //{
+            //    ItemContainerStyle = tileFilesListStyle;
+            //    FileListStyle = fileListStyle;
+            //}
         }
 
         public  void AddingDrive()

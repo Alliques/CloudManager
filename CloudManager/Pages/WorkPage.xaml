@@ -78,7 +78,7 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1">
-            <ListBox
+            <!--<ListBox
                 Margin="10,10,10,0"
                 HorizontalContentAlignment="Stretch"
                 Background="Transparent"
@@ -87,7 +87,8 @@
                 ItemsSource="{Binding MyProperty}"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 Style="{Binding FileListStyle, Mode=TwoWay}"
-                VirtualizingPanel.ScrollUnit="Pixel" />
+                VirtualizingPanel.ScrollUnit="Pixel" />-->
+            <local:DiskContentListControl />
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <Border Background="Green" />

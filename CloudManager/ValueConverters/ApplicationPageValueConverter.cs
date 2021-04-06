@@ -9,7 +9,6 @@ namespace CloudManager
 
         public override object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            var p = (DriveType)values[1];
             switch ((ApplicationPage)values[0])
             {
                 case ApplicationPage.LoginPage:

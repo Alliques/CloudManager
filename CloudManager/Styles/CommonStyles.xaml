@@ -1,39 +1,81 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                       xmlns:controls="clr-namespace:CloudManager.Controls"
-                    xmlns:local="clr-namespace:Styles">
-    <Style x:Key="iconAnimationStyle" TargetType="controls:RoundedButton">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:CloudManager.Controls">
+    <Style x:Key="ListBoxItemStyleBase" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="4,1"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="iconAnimationStyle" TargetType="{x:Type Button}">
         <Style.Triggers>
             <EventTrigger RoutedEvent="MouseEnter">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                        <Storyboard >
-                            <DoubleAnimation Storyboard.TargetProperty="Width" To="80" Duration="0:0:0.5">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Width"
+                                To="80"
+                                Duration="0:0:0.5">
                                 <DoubleAnimation.EasingFunction>
-                                    <ElasticEase EasingMode="EaseOut" Oscillations="2" Springiness="5" />
+                                    <ElasticEase
+                                        EasingMode="EaseOut"
+                                        Oscillations="2"
+                                        Springiness="5" />
                                 </DoubleAnimation.EasingFunction>
                             </DoubleAnimation>
-                            <DoubleAnimation Storyboard.TargetProperty="Height" To="80" Duration="0:0:0.5">
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Height"
+                                To="80"
+                                Duration="0:0:0.5">
                                 <DoubleAnimation.EasingFunction>
-                                    <ElasticEase EasingMode="EaseOut" Oscillations="2" Springiness="5" />
+                                    <ElasticEase
+                                        EasingMode="EaseOut"
+                                        Oscillations="2"
+                                        Springiness="5" />
                                 </DoubleAnimation.EasingFunction>
                             </DoubleAnimation>
                         </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
             <EventTrigger RoutedEvent="MouseLeave">
                 <EventTrigger.Actions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Width" To="50" Duration="0:0:0.5">
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Width"
+                                To="50"
+                                Duration="0:0:0.5">
                                 <DoubleAnimation.EasingFunction>
-                                    <ElasticEase EasingMode="EaseOut" Oscillations="2" Springiness="5" />
+                                    <ElasticEase
+                                        EasingMode="EaseOut"
+                                        Oscillations="2"
+                                        Springiness="5" />
                                 </DoubleAnimation.EasingFunction>
                             </DoubleAnimation>
-                            <DoubleAnimation Storyboard.TargetProperty="Height" To="50" Duration="0:0:0.5">
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Height"
+                                To="50"
+                                Duration="0:0:0.5">
                                 <DoubleAnimation.EasingFunction>
-                                    <ElasticEase EasingMode="EaseOut" Oscillations="2" Springiness="5" />
+                                    <ElasticEase
+                                        EasingMode="EaseOut"
+                                        Oscillations="2"
+                                        Springiness="5" />
                                 </DoubleAnimation.EasingFunction>
                             </DoubleAnimation>
                         </Storyboard>
@@ -41,5 +83,254 @@
                 </EventTrigger.Actions>
             </EventTrigger>
         </Style.Triggers>
+    </Style>
+    <Style
+        x:Key="SearchTextBox"
+        BasedOn="{StaticResource BaseStyle}"
+        TargetType="{x:Type TextBox}">
+        <Setter Property="BorderBrush" Value="{StaticResource CommonBackgroundColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="{StaticResource CommonItemsBackgroundColorBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource CommonTitleColorBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource Roboto}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight, Converter={StaticResource HalfSizeConverter}}"
+                            SnapsToDevicePixels="True">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    x:Name="icon"
+                                    Grid.Column="0"
+                                    Margin="8,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="{StaticResource FontAwesome}"
+                                    FontSize="12"
+                                    Foreground="{StaticResource SearchIconColorBrush}"
+                                    Text="&#xf002;" />
+                                <ScrollViewer
+                                    x:Name="PART_ContentHost"
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Focusable="False"
+                                    HorizontalScrollBarVisibility="Hidden"
+                                    Style="{StaticResource SearchControlTextStyle}"
+                                    VerticalScrollBarVisibility="Hidden" />
+                                <TextBlock
+                                    x:Name="placeholder"
+                                    Grid.Column="1"
+                                    Padding="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                    VerticalAlignment="Center"
+                                    IsHitTestVisible="False"
+                                    Text="{TemplateBinding Tag}">
+                                    <TextBlock.Style>
+                                        <Style BasedOn="{StaticResource SearchPlaceholderTextStyle}" TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!--<Setter Property="TextBox.Effect">
+            <Setter.Value>
+                <DropShadowEffect
+                    Direction="-90"
+                    ShadowDepth="0.5"
+                    Color="Red" />
+            </Setter.Value>
+        </Setter>-->
+
+    </Style>
+
+    <Style x:Key="TileListStyle" TargetType="ListBox">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="listBoxItemBase" TargetType="ListBoxItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" />
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="Background" Value="Transparent" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RowItemListStyle" TargetType="ListBoxItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border
+                        x:Name="border"
+                        Height="40"
+                        Margin="0,0,0,8"
+                        BorderBrush="{StaticResource CommonBorderColorBrush}"
+                        BorderThickness="1.5"
+                        CornerRadius="8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Grid.Column="0"
+                                Width="19"
+                                Height="19"
+                                Margin="10,0" />
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <TextBlock Style="{StaticResource TitleRegular}" Text="Download" />
+                                <TextBlock Style="{StaticResource DescriptionRegular}" Text="Text" />
+                            </StackPanel>
+                            <controls:RoundedButton
+                                x:Name="contextMenuBtn"
+                                Grid.Column="2"
+                                Width="19"
+                                Height="19"
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Background="{StaticResource DriveListSelectedItemColorBrush}"
+                                BorderThickness="0"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
+                                Template="{DynamicResource RoundedButtonTemplate}">
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    Style="{StaticResource FileContextMenuBtn}"
+                                    Text="&#xf141;"
+                                    TextAlignment="Center" />
+                            </controls:RoundedButton>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DriveListSelectedItemBorderColorBrush}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DriveListSelectedItemColorBrush}" />
+                            <Setter TargetName="contextMenuBtn" Property="Visibility" Value="Hidden" />
+                        </MultiTrigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TileFilesListStyle" TargetType="ListBoxItem">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border
+                        x:Name="border"
+                        Width="165"
+                        Height="80"
+                        Margin="0,0,10,10"
+                        BorderBrush="{StaticResource CommonBorderColorBrush}"
+                        BorderThickness="1.5"
+                        CornerRadius="8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*" />
+                                <RowDefinition Height="5*" />
+                            </Grid.RowDefinitions>
+                            <Image
+                                Grid.Column="0"
+                                Width="19"
+                                Height="19"
+                                Margin="10,5,0,5"
+                                HorizontalAlignment="Left"
+                                Source="/Resources/images/mainWindowImades/cancel-music.png" />
+                            <StackPanel
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center">
+                                <TextBlock Style="{StaticResource TitleRegular}" Text="Download" />
+                                <TextBlock Style="{StaticResource DescriptionRegular}" Text="Text" />
+                            </StackPanel>
+                            <controls:RoundedButton
+                                x:Name="contextMenuBtn"
+                                Grid.Column="2"
+                                Width="19"
+                                Height="19"
+                                Margin="0,0,10,0"
+                                Background="{StaticResource SelectedDriveBrush}"
+                                BorderThickness="0"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
+                                Template="{DynamicResource RoundedButtonTemplate}">
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    Style="{StaticResource FileContextMenuBtn}"
+                                    Text="&#xf141;"
+                                    TextAlignment="Center" />
+                            </controls:RoundedButton>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SelectedFileBgColorBrush}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DriveListSelectedItemColorBrush}" />
+                            <Setter TargetName="contextMenuBtn" Property="Visibility" Value="Hidden" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

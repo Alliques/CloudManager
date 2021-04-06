@@ -1,0 +1,24 @@
+﻿<UserControl
+    x:Class="CloudManager.DiskListControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CloudManager"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="Transparent" DataContext="{x:Static local:DisklistDesignModel.Instance}">
+        
+        <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" VirtualizingPanel.ScrollUnit="Pixel" 
+            HorizontalContentAlignment="Stretch"
+            Background="Transparent"
+            BorderThickness="0"
+            ItemContainerStyle="{StaticResource DriveListContainerStyle}"
+            ItemsSource="{Binding Items}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:DiskListItemControl />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

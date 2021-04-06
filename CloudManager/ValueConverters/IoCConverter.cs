@@ -12,8 +12,9 @@ namespace CloudManager
             switch ((string)parameter)
             {
                 case nameof(ApplicationViewModel):
-                    return IoC.Kernel.Get<ApplicationViewModel>();  
-                
+                    return IoC.Kernel.Get<ApplicationViewModel>();
+                case nameof(AuthentificationViewModel):
+                    return IoC.Kernel.Get<AuthentificationViewModel>();
                 default:
                     Debugger.Break();
                     return null;

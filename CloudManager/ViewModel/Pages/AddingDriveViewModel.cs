@@ -16,13 +16,13 @@ namespace CloudManager
             switch ((DriveType)obj)
             {
                 case DriveType.GoogleDrive:
-                    IoC.Get<ApplicationViewModel>().GoToAuthPage(ApplicationPage.Authentification, DriveType.GoogleDrive);
+                    IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Authentification);
                     break;
                 case DriveType.OneDrive:
-                    IoC.Get<ApplicationViewModel>().GoToAuthPage(ApplicationPage.Authentification, DriveType.OneDrive);
+                    IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Authentification);
                     break;
                 case DriveType.YandexDisk:
-                   IoC.Get<ApplicationViewModel>().GoToAuthPage(ApplicationPage.Authentification, DriveType.YandexDisk);
+                   IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Authentification);
                     break;
                 default:
                     break;

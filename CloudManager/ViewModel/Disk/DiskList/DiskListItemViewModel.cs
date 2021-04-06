@@ -13,12 +13,12 @@ namespace CloudManager
 
         public DiskListItemViewModel()
         {
-            SelectedItemCommand = new RelayCommand(() => SelectedItem());
+            SelectDriveCommand = new RelayCommand(() => SelectDrive());
         }
-        public void SelectedItem()
+        public void SelectDrive()
         {
             IsSelected = true;
         }
-        public ICommand SelectedItemCommand { get; set; }
+        public ICommand SelectDriveCommand { get; set; }
     }
 }

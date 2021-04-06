@@ -139,6 +139,12 @@
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
     <Compile Include="AttachedProperties\NoFrameHistory.cs" />
+    <Compile Include="Controls\Disk\DiskContent\DiskContentListControl.xaml.cs">
+      <DependentUpon>DiskContentListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Disk\DiskContent\DiskContentListItemControl.xaml.cs">
+      <DependentUpon>DiskContentListItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Disk\DiskList\DiskListControl.xaml.cs">
       <DependentUpon>DiskListControl.xaml</DependentUpon>
     </Compile>
@@ -179,6 +185,9 @@
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseMultiValueConverter.cs" />
     <Compile Include="ValueConverters\StorageTypeValueConverter.cs" />
+    <Compile Include="ViewModel\Disk\DiskListItem\Design\DiskContentListDesignModel.cs" />
+    <Compile Include="ViewModel\Disk\DiskListItem\DiskContentListItemViewModel.cs" />
+    <Compile Include="ViewModel\Disk\DiskListItem\DiskContentListViewModel.cs" />
     <Compile Include="ViewModel\Disk\DiskList\DiskListItemViewModel.cs" />
     <Compile Include="ViewModel\Disk\DiskList\Design\DisklistDesignModel.cs" />
     <Compile Include="ViewModel\Disk\DiskList\DiskListViewModel.cs" />
@@ -194,6 +203,14 @@
     <Compile Include="ViewModel\Pages\ViewModelLocator.cs" />
     <Compile Include="ViewModel\Pages\WorkViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
+    <Page Include="Controls\Disk\DiskContent\DiskContentListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Disk\DiskContent\DiskContentListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Disk\DiskList\DiskListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -254,10 +271,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\DarkTheme\Colors.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\Fonts.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -267,10 +280,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ResourceDictionary\DarkTheme\Brushes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\ResourceDictionary\DarkTheme\CommonStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,7 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:CloudManager">
     <Application.Resources>
+        
         <ResourceDictionary>
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/LightTheme/Colors.xaml" />
                 <ResourceDictionary Source="Styles/SvgIcons.xaml" />
@@ -13,15 +15,10 @@
                 <ResourceDictionary Source="Styles/Templates.xaml" />
                 <ResourceDictionary Source="Styles/ControlsStyles.xaml" />
                 <ResourceDictionary Source="Styles/ResourceDictionary/LightTheme/Brushes.xaml" />
-                <ResourceDictionary Source="/Styles/CommonStyles.xaml"/>
-                <ResourceDictionary Source="Styles/ResourceDictionary/DarkTheme/CommonStyles.xaml" />
-                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
+                <ResourceDictionary Source="/Styles/CommonStyles.xaml"/> 
             </ResourceDictionary.MergedDictionaries>
 
-            <Style x:Key="WithAnimation" TargetType="{x:Type Button}">
+            <!--<Style x:Key="WithAnimation" TargetType="{x:Type Button}">
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="BorderThickness" Value="0" />
                 <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
@@ -124,7 +121,7 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-            </Style>
+            </Style>-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>

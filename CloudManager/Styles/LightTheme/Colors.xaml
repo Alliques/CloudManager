@@ -58,7 +58,7 @@
 
     <Color x:Key="FileListMenuButtonBackgroundColor">#6C65EC</Color>
     <SolidColorBrush x:Key="FileListMenuButtonBackgroundBrush" Color="{StaticResource FileListMenuButtonBackgroundColor}" />
-    
+
 
 
 </ResourceDictionary>

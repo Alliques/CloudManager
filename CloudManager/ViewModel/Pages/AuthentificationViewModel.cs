@@ -8,5 +8,10 @@ namespace CloudManager
 {
     public class AuthentificationViewModel : BaseViewModel
     {
+        public int MyProperty { get; set; }
+        public AuthentificationViewModel()
+        {
+            
+        }
     }
 }

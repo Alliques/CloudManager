@@ -9,7 +9,6 @@ namespace CloudManager
         public ApplicationViewModel()
         {
         }
-        public DriveType Storage { get; private set; } = DriveType.None;
 
         
         /// <summary>
@@ -20,11 +19,6 @@ namespace CloudManager
         public void GoToPage(ApplicationPage page)
         {
             CurrentPage = page;
-        }
-        public void GoToAuthPage(ApplicationPage page, DriveType storage)
-        {
-            CurrentPage = page;
-            Storage = storage;
         }
     }
 }

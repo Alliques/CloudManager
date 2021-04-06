@@ -27,7 +27,7 @@
                 VerticalAlignment="Center"
                 FontSize="20"
                 Style="{StaticResource BaseTextBlockStyle}"
-                Text="Please select the drive type" />
+                Text="Select the drive type" />
         </Grid>
         <Grid Grid.Row="1">
             <Grid

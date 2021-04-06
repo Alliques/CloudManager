@@ -1,47 +1,19 @@
 ﻿<UserControl
-    x:Class="CloudManager.DiskListControl"
+    x:Class="CloudManager.DiskListItemControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:Core="http://schemas.microsoft.com/expression/2010/interactions"
-    xmlns:control="clr-namespace:CloudManager.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:CloudManager"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="254.8"
+    d:DesignWidth="192.6"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle
-                            Margin="2"
-                            SnapsToDevicePixels="true"
-                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                            StrokeDashArray="1 2"
-                            StrokeThickness="1" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <SolidColorBrush x:Key="Item.MouseOver.Background" Color="{StaticResource CommonItemsBackgroundColor}" />
-        <SolidColorBrush x:Key="Item.MouseOver.Border" Color="{StaticResource CommonItemsBackgroundColor}" />
-        <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="Transparent" />
-        <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="Transparent" />
-        <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="Transparent" />
-        <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="Transparent" />
-        <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
-            <Setter Property="SnapsToDevicePixels" Value="True" />
-            <Setter Property="Padding" Value="4,1" />
-            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Style x:Key="DiskListContainerStyle" TargetType="{x:Type ContentControl}">
+            
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <ControlTemplate TargetType="{x:Type ContentControl}" >
                         <Border
                             x:Name="border"
                             Height="110"
@@ -151,12 +123,20 @@
                                     </Grid>
                                 </Border>
                             </Grid>
+
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Trigger.EnterActions>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
+                                <Setter TargetName="descAvatar" Property="BorderThickness" Value="0" />
+                                <DataTrigger.EnterActions>
+
                                     <BeginStoryboard>
                                         <Storyboard>
+                                            <!--<ColorAnimation
+                                            Storyboard.TargetName="driveAvatar"
+                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                            To="{StaticResource CommonWhiteColor}"
+                                            Duration="0:0:0.2" />-->
                                             <ColorAnimation
                                                 Storyboard.TargetName="driveAvatar"
                                                 Storyboard.TargetProperty="BorderBrush.Color"
@@ -177,6 +157,11 @@
                                                 Storyboard.TargetProperty="BorderBrush.Color"
                                                 To="{StaticResource PrivalingFilesInformationBarColor}"
                                                 Duration="0:0:0.2" />
+                                            <!--<ColorAnimation
+                                            Storyboard.TargetName="descAvatar"
+                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                            To="{StaticResource CommonWhiteColor}"
+                                            Duration="0:0:0.2" />-->
                                             <ColorAnimation
                                                 Storyboard.TargetName="descAvatar"
                                                 Storyboard.TargetProperty="BorderBrush.Color"
@@ -224,8 +209,10 @@
                                                 Duration="0:0:0.2" />
                                         </Storyboard>
                                     </BeginStoryboard>
-                                </Trigger.EnterActions>
-                                <Trigger.ExitActions>
+
+                                </DataTrigger.EnterActions>
+                                <DataTrigger.ExitActions>
+
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <ColorAnimation
@@ -305,7 +292,11 @@
                                                 Duration="0:0:0.2" />
                                         </Storyboard>
                                     </BeginStoryboard>
-                                </Trigger.ExitActions>
+
+                                </DataTrigger.ExitActions>
+                            </DataTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -313,12 +304,5 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid Background="Transparent" DataContext="{x:Static local:DisklistDesignModel.Instance}">
-        <ListBox
-            HorizontalContentAlignment="Stretch"
-            Background="Transparent"
-            BorderThickness="0"
-            ItemContainerStyle="{StaticResource ListBoxItemStyle1}"
-            ItemsSource="{Binding Items}" />
-    </Grid>
+    <ContentControl Style="{StaticResource DiskListContainerStyle}"/>
 </UserControl>
